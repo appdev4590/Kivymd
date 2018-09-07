@@ -59,8 +59,6 @@ class Example(App):
         def callback(instance, star):
             if star:
                 toast('Set like in %d stars' % star)
-            else:
-                toast('Delete post %s' % str(instance))
 
         instance_grid_card = self.screen.ids.grid_card
         path_to_avatar = 'data/logo/kivy-icon-512.png'
