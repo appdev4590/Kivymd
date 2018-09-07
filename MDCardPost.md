@@ -87,3 +87,30 @@ class Example(App):
 
 Example().run()
 ```
+
+## Add card behavior swipe (Add option **swipe=True** to class **MDCardPost**):
+
+```python
+    def on_start(self):
+        def callback(instance, star):
+            if star:
+                toast('Set like in %d stars' % star)
+            else:
+                self.screen.ids.grid_card.remove_widget(instance)
+                toast('Delete post %s' % str(instance))
+
+        instance_grid_card.add_widget(
+            MDCardPost(
+                path_to_avatar=path_to_avatar, swipe=True,
+                text_post='Card with text', callback=callback))
+        instance_grid_card.add_widget(
+            MDCardPost(
+                right_menu=menu_items, swipe=True,
+                path_to_avatar=path_to_avatar, callback=callback,
+                text_post='Card with a button to open the menu MDDropDown.'))
+        instance_grid_card.add_widget(
+            MDCardPost(
+                likes_stars=True, callback=callback,
+                path_to_avatar=path_to_avatar, swipe=True,
+                text_post='Card with asterisks for voting.'))
+```
