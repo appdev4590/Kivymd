@@ -12,8 +12,7 @@ from kivymd.theming import ThemeManager
 from kivymd.toast import toast
 
 
-Builder.load_string(
-'''
+Builder.load_string("""
 #:import Toolbar kivymd.toolbar.Toolbar
 
 
@@ -41,7 +40,7 @@ Builder.load_string(
             padding: dp(5)
             size_hint_y: None
             height: self.minimum_height
-''')
+""")
 
 
 class Example(App):
@@ -57,14 +56,11 @@ class Example(App):
         def callback_for_menu_items(text_item):
             toast(text_item)
 
-        def callback_on_star(index_star):
-            """
-            :param index_star: star index; begins from scratch;
-            :type index_star: int;
-
-            """
-
-            toast('Set like in %d stars' % index_star)
+        def callback(instance, star):
+            if star:
+                toast('Set like in %d stars' % star)
+            else:
+                toast('Delete post %s' % str(instance))
 
         instance_grid_card = self.screen.ids.grid_card
         path_to_avatar = 'data/logo/kivy-icon-512.png'
@@ -86,7 +82,7 @@ class Example(App):
                 text_post='Card with a button to open the menu MDDropDown.'))
         instance_grid_card.add_widget(
             MDCardPost(
-                likes_stars=True, callback_on_star=callback_on_star,
+                likes_stars=True, callback=callback,
                 path_to_avatar=path_to_avatar,
                 text_post='Card with asterisks for voting.'))
 
