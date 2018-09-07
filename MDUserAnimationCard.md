@@ -1,6 +1,6 @@
-Example of using a class MDUserAnimationCard:
-
 ![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/useranimationcard.gif)
+
+## Example of using a class MDUserAnimationCard:
 
 ```pythonfrom kivy.app import App
 from kivy.lang import Builder
