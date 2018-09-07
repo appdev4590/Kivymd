@@ -2,7 +2,8 @@
 
 ## Example of using a class MDUserAnimationCard:
 
-```pythonfrom kivy.app import App
+```python
+from kivy.app import App
 from kivy.lang import Builder
 from kivy.factory import Factory
 
