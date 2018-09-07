@@ -2,8 +2,7 @@ Example of using a class MDUserAnimationCard:
 
 ![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/useranimationcard.gif)
 
-`
-from kivy.app import App
+`from kivy.app import App
 from kivy.lang import Builder
 from kivy.factory import Factory
 
@@ -88,5 +87,4 @@ class Example(App):
         self.user_animation_card.open()
 
 
-Example().run()
-`
+Example().run()`
