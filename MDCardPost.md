@@ -89,6 +89,9 @@ Example().run()
 ```
 
 ## Add card behavior swipe
+
+![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/cardswipe.gif)
+
 (Add option **swipe=True** to class **MDCardPost**):
 
 ```python
