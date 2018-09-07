@@ -1,6 +1,6 @@
 ![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/updatespinner.gif)
 
-## Example of using a class MDUserAnimationCard:
+## Example of using a class MDUpdateSpinner:
 
 ```python
 from kivy.app import App
