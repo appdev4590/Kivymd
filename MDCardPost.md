@@ -88,7 +88,8 @@ class Example(App):
 Example().run()
 ```
 
-## Add card behavior swipe (Add option **swipe=True** to class **MDCardPost**):
+## Add card behavior swipe
+(Add option **swipe=True** to class **MDCardPost**):
 
 ```python
     def on_start(self):
