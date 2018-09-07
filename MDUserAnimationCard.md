@@ -87,4 +87,5 @@ class Example(App):
         self.user_animation_card.open()
 
 
-Example().run()```
+Example().run()
+```
