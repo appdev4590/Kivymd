@@ -47,6 +47,7 @@ class Example(App):
     theme_cls = ThemeManager()
     theme_cls.primary_palette = 'Teal'
     title = "Card Post"
+    cards_created = False
 
     def build(self):
         self.screen = Factory.ExampleCardPost()
@@ -56,12 +57,18 @@ class Example(App):
         def callback_for_menu_items(text_item):
             toast(text_item)
 
-        def callback(instance, star):
-            if star:
-                toast('Set like in %d stars' % star)
+        def callback(instance, value):
+            if value and isinstance(value, int):
+                toast('Set like in %d stars' % value)
+            elif value and isinstance(value, str):
+                toast('Repost with %s ' % value)
+            elif value and isinstance(value, list):
+                toast(value[1])
+            else:
+                toast('Delete post %s' % str(instance))
 
         instance_grid_card = self.screen.ids.grid_card
-        path_to_avatar = 'data/logo/kivy-icon-512.png'
+        buttons = ['facebook', 'vk', 'twitter']
         menu_items = [
             {'viewclass': 'MDMenuItem',
              'text': 'Example item %d' % i,
@@ -69,52 +76,33 @@ class Example(App):
             for i in range(2)
         ]
 
-        instance_grid_card.add_widget(
-            MDCardPost(
-                path_to_avatar=path_to_avatar,
-                text_post='Card with text'))
-        instance_grid_card.add_widget(
-            MDCardPost(
-                right_menu=menu_items,
-                path_to_avatar=path_to_avatar,
-                text_post='Card with a button to open the menu MDDropDown.'))
-        instance_grid_card.add_widget(
-            MDCardPost(
-                likes_stars=True, callback=callback,
-                path_to_avatar=path_to_avatar,
-                text_post='Card with asterisks for voting.'))
+        if not self.cards_created:
+            self.cards_created = True
+
+            instance_grid_card.add_widget(
+                MDCardPost(text_post='Card with text',
+                           swipe=True, callback=callback))
+            instance_grid_card.add_widget(
+                MDCardPost(
+                    right_menu=menu_items, swipe=True,
+                    text_post='Card with a button to open the menu MDDropDown',
+                    callback=callback))
+            instance_grid_card.add_widget(
+                MDCardPost(
+                    likes_stars=True, callback=callback, swipe=True,
+                    text_post='Card with asterisks for voting.'))
+
+            instance_grid_card.add_widget(
+                MDCardPost(
+                    source="./assets/kitten-1049129_1280.jpg",
+                    tile_text="Little Baby",
+                    tile_font_style="Headline",
+                    text_post="This is my favorite cat. He's only six months "
+                              "old. He loves milk and steals sausages :) "
+                              "And he likes to play in the garden.",
+                    with_image=True, swipe=True, callback=callback,
+                    buttons=buttons))
 
 
 Example().run()
-```
-
-## Add card behavior swipe
-
-![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/cardswipe.gif)
-
-(Add option **swipe=True** to class **MDCardPost**):
-
-```python
-    def on_start(self):
-        def callback(instance, star):
-            if star:
-                toast('Set like in %d stars' % star)
-            else:
-                self.screen.ids.grid_card.remove_widget(instance)
-                toast('Delete post %s' % str(instance))
-
-        instance_grid_card.add_widget(
-            MDCardPost(
-                path_to_avatar=path_to_avatar, swipe=True,
-                text_post='Card with text', callback=callback))
-        instance_grid_card.add_widget(
-            MDCardPost(
-                right_menu=menu_items, swipe=True,
-                path_to_avatar=path_to_avatar, callback=callback,
-                text_post='Card with a button to open the menu MDDropDown.'))
-        instance_grid_card.add_widget(
-            MDCardPost(
-                likes_stars=True, callback=callback,
-                path_to_avatar=path_to_avatar, swipe=True,
-                text_post='Card with asterisks for voting.'))
 ```
