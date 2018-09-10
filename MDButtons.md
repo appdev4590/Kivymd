@@ -1,3 +1,8 @@
+![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/buttons.gif)
+
+## Example of using a class MDButtons:
+
+```python
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.factory import Factory
@@ -103,3 +108,4 @@ class Example(App):
 
 
 Example().run()
+```
