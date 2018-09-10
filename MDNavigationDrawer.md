@@ -1,3 +1,8 @@
+![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/navdrawer.gif)
+
+## Example of using a class MDNavigationDrawer:
+
+```python
 from kivy.app import App
 from kivy.lang import Builder
 
@@ -63,3 +68,4 @@ class Example(App):
 
 
 Example().run()
+```
