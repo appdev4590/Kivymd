@@ -1,6 +1,6 @@
 ![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/buttons.gif)
 
-## Example of using a class MDButtons:
+## Example of using MDButtons:
 
 ```python
 from kivy.app import App
