@@ -19,6 +19,7 @@ Builder.load_string("""
 #:import MDRoundFlatButton kivymd.button.MDRoundFlatButton
 #:import MDRoundFlatIconButton kivymd.button.MDRoundFlatIconButton
 #:import MDFillRoundFlatButton kivymd.button.MDFillRoundFlatButton
+#:import MDTextButton kivymd.button.MDTextButton
 
 
 <ExampleButtons@BoxLayout>:
@@ -77,23 +78,29 @@ Builder.load_string("""
             pos_hint: {'center_x': 0.5, 'center_y': .55}
 
         MDRectangleFlatIconButton:
-            text: "I love Python"
+            text: "MDRectangleFlatIconButton"
             icon: "language-python"
             pos_hint: {'center_x': 0.5, 'center_y': .45}
+            width: dp(230)
 
         MDRoundFlatButton:
-            text: "I love Python"
+            text: "MDRoundFlatButton"
             icon: "language-python"
             pos_hint: {'center_x': 0.5, 'center_y': .35}
 
         MDRoundFlatIconButton:
-            text: "I love Python"
+            text: "MDRoundFlatIconButton"
             icon: "language-python"
             pos_hint: {'center_x': 0.5, 'center_y': .25}
+             width: dp(200)
 
         MDFillRoundFlatButton:
-            text: "I love Python"
+            text: "MDFillRoundFlatButton"
             pos_hint: {'center_x': 0.5, 'center_y': .15}
+
+        MDTextButton:
+            text: "MDTextButton"
+            pos_hint: {'center_x': 0.5, 'center_y': .05}
 """)
 
 
