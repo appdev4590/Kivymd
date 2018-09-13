@@ -48,8 +48,6 @@ Builder.load_string("""
     TwoLineIconListItem:
         text: "Call Viber Out"
         secondary_text: "[color=%s]Advantageous rates for calls[/color]" % get_hex_from_color(app.theme_cls.primary_color)
-        # FIXME: Don't work "secondary_text_color" parameter
-        # secondary_text_color: app.theme_cls.primary_color
         IconLeftSampleWidget:
             icon: 'phone'
 
