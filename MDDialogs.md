@@ -72,3 +72,8 @@ class Example(App):
 
 Example().run()
 ```
+
+In the dialog you can use two buttons:
+**text_button_ok** and **text_button_cancel**
+
+The library itself determines the platform and selects the desired type of windows for Android and iOS!
