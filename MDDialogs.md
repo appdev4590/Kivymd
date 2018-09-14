@@ -1,4 +1,7 @@
-# Dialog on iOS
+### Dialog on Android
+![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/dialog.gif)
+
+### Dialog on iOS
 ![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/dialog_ios.gif)
 ## Example of using a class MDDialogs:
 
