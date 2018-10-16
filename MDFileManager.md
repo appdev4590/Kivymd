@@ -96,9 +96,10 @@ class Example(App):
 Example().run()
 ```
 
-![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/filemanager_previous.gif)
-
 ## Example of using a class MDFileManager with previous mode:
+(uses threads to create previews and does not slow down user interface)
+
+![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/filemanager_previous.gif)
 
 ```python
 file_manager = MDFileManager(previous=True)
