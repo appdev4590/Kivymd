@@ -1,5 +1,6 @@
 ![textfieldrect.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/textfieldrect.gif)
 
+```python
 import os
 
 from kivy.app import App
@@ -100,3 +101,4 @@ class Example(App):
 
 
 Example().run()
+```
