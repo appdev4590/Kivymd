@@ -1,5 +1,7 @@
 ![textfieldrect.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/textfieldrect.gif)
 
+## Example of using MDTextFieldRect:
+
 ```python
 import os
 
@@ -18,62 +20,57 @@ Builder.load_string("""
 
 <ExampleMDTextFieldRect@BoxLayout>:
     orientation: 'vertical'
+    spacing: dp(10)
 
-    Screen:
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'demos/kitchen_sink/assets/crop-blur.jpg'
 
-        BoxLayout:
-            orientation: 'vertical'
-            spacing: dp(10)
+    Image:
+        source: 'demos/kitchen_sink/assets/twitter-red.png'
+        size_hint: None, None
+        size: dp(60), dp(60)
+        pos_hint: {'center_x': .5}
 
-            canvas:
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
-                    source: 'demos/kitchen_sink/assets/crop-blur.jpg'
+    Label:
+        text: 'Registration'
+        size_hint_y: None
+        height: self.texture_size[1]
+        font_size: '20sp'
+        bold: True
 
-            Image:
-                source: 'demos/kitchen_sink/assets/twitter-red.png'
-                size_hint: None, None
-                size: dp(60), dp(60)
-                pos_hint: {'center_x': .5}
+    Widget:
+        size_hint_y: None
+        height: dp(10)
 
-            Label:
-                text: 'Registration'
-                size_hint_y: None
-                height: self.texture_size[1]
-                font_size: '20sp'
-                bold: True
+    MDTextFieldRect:
+        size_hint: None, None
+        size: root.width - dp(40), dp(30)
+        pos_hint: {'center_x': .5}
 
-            Widget:
-                size_hint_y: None
-                height: dp(10)
+    MDTextFieldRect:
+        size_hint: None, None
+        size: root.width - dp(40), dp(30)
+        pos_hint: {'center_x': .5}
 
-            MDTextFieldRect:
-                size_hint: None, None
-                size: root.width - dp(40), dp(30)
-                pos_hint: {'center_x': .5}
+    Widget:
+        size_hint_y: None
+        height: dp(20)
 
-            MDTextFieldRect:
-                size_hint: None, None
-                size: root.width - dp(40), dp(30)
-                pos_hint: {'center_x': .5}
+    Label:
+        text: 'Enter your Login and Password'
+        size_hint_y: None
+        height: self.texture_size[1]
 
-            Widget:
-                size_hint_y: None
-                height: dp(20)
+    AnchorLayout:
+        anchor_y: 'bottom'
+        padding: dp(10)
 
-            Label:
-                text: 'Enter your Login and Password'
-                size_hint_y: None
-                height: self.texture_size[1]
-
-            AnchorLayout:
-                anchor_y: 'bottom'
-                padding: dp(10)
-
-                MDRoundFlatButton:
-                    text: "Registration"
-                    pos_hint: {'center_x': .5}
+        MDRoundFlatButton:
+            text: "Registration"
+            pos_hint: {'center_x': .5}
 """)
 
 
