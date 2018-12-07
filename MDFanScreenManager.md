@@ -1,4 +1,4 @@
-![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/fansceernmanager.gif)
+![fansceernmanager.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/fansceernmanager.gif)
 
 ## Example of using MDFanScreenManager:
 
