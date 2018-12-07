@@ -2,6 +2,9 @@
 
 ## Example of using MDFanScreenManager:
 
+Attention! This is an experimental widget.
+Perhaps the wrong positioning of the screens with a large number of them.
+
 ```python
 from kivy.app import App
 from kivy.lang import Builder
@@ -70,7 +73,7 @@ Builder.load_string("""
 
 ###############################################################################
 #
-#                         SCREENS WIDGETS
+#                                SCREEN WIDGETS
 #
 ###############################################################################
 
