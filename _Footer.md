@@ -1,1 +1,1 @@
-![difddfvbz5p0jc2fvmou9d99m0e.png](https://habrastorage.org/webt/di/fd/df/difddfvbz5p0jc2fvmou9d99m0e.png)
+![image](https://habrastorage.org/webt/ov/mm/uk/ovmmuk3rgh2b-cnmmklzhfwl-oc.png)
