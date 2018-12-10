@@ -69,6 +69,17 @@ BoxLayout:
                 icon: 'facebook'
                 callback: app.callback
 
+            MDChip:
+                label: 'Without icon'
+                icon: ''
+                callback: app.callback
+
+            MDChip:
+                label: 'Check'
+                icon: ''
+                check: True
+                callback: app.callback
+
         Widget:
 """
 
