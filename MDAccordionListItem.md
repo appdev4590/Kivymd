@@ -1,4 +1,4 @@
-![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/accordionlistitem.gif)
+![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD-data/blob/master/gallery/accordionlistitem.gif)
 
 ## Example of using MDAccordionListItem:
 
