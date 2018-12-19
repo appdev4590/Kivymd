@@ -1,4 +1,4 @@
-![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/stackfloatingbuttons.gif)
+![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/stackfloatingbuttons.gif)
 
 ## Example of using a class MDStackFloatingButtons:
 
