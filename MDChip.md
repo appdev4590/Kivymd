@@ -1,4 +1,4 @@
-![chips.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/chips.gif)
+![chips.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/chips.gif)
 
 ## Example of using MDChip:
 
