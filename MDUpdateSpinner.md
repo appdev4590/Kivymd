@@ -1,4 +1,4 @@
-![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/updatespinner.gif)
+![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/updatespinner.gif)
 
 ## Example of using a class MDUpdateSpinner:
 
