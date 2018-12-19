@@ -1,4 +1,4 @@
-![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/textfield_cleartype.gif)
+![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/textfield_cleartype.gif)
 
 ## Example of using TextFields:
 
