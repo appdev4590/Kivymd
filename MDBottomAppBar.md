@@ -1,4 +1,4 @@
-![appbar.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD/master/gallery/appbar.gif)
+![appbar.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/appbar.gif)
 
 ## Example of using MDBottomAppBar:
 
