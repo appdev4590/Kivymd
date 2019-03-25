@@ -10,8 +10,6 @@ from kivymd.theming import ThemeManager
 
 
 KV = """
-#:import Toolbar kivymd.toolbar.Toolbar
-#:import MDRaisedButton kivymd.button.MDRaisedButton
 #:import MDBottomNavigation kivymd.tabs.MDBottomNavigation
 
 
