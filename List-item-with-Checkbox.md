@@ -53,7 +53,6 @@ class MyAvatar(ILeftBody, Image):
 class Example(App):
     theme_cls = ThemeManager()
     theme_cls.primary_palette = 'Teal'
-    title = "Dialogs"
 
     def build(self):
         list = Factory.Lists()
