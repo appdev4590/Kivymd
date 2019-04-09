@@ -7,7 +7,7 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.factory import Factory
 
-from kivymd.card import MDCardPost
+from kivymd.cards import MDCardPost
 from kivymd.theming import ThemeManager
 from kivymd.toast import toast
 
