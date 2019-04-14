@@ -14,7 +14,7 @@ from kivymd.theming import ThemeManager
 from kivymd.toast import toast
 
 KV = """
-#import Window kivy.core.window.Window
+#:import Window kivy.core.window.Window
 #:import Toolbar kivymd.toolbar.Toolbar
 #:import MDRaisedButton kivymd.button.MDRaisedButton
 #:import MDSeparator kivymd.cards.MDSeparator
