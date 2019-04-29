@@ -8,7 +8,7 @@ from kivy.lang import Builder
 from kivy.factory import Factory
 
 from kivymd.theming import ThemeManager
-from kivymd.date_picker import MDDatePicker
+from kivymd.pickers import MDDatePicker
 
 
 KV = """
