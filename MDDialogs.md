@@ -17,7 +17,7 @@ from kivymd.theming import ThemeManager
 
 Builder.load_string(
 '''
-#:import Toolbar kivymd.toolbar.Toolbar
+#:import MDToolbar kivymd.toolbar.MDToolbar
 #:import MDRectangleFlatButton kivymd.button.MDRectangleFlatButton
 
 
@@ -25,7 +25,7 @@ Builder.load_string(
     orientation: 'vertical'
     spacing: dp(5)
 
-    Toolbar:
+    MDToolbar:
         id: toolbar
         title: app.title
         left_action_items: [['menu', lambda x: None]]
