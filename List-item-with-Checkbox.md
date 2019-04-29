@@ -16,7 +16,7 @@ Builder.load_string(
 '''
 #:import MDList kivymd.list.MDList
 #:import MDLabel kivymd.label.MDLabel
-#:import Toolbar kivymd.toolbar.Toolbar
+#:import Toolbar kivymd.toolbar.MDToolbar
 #:import OneLineAvatarIconListItem kivymd.list.OneLineAvatarIconListItem
 
 
@@ -30,7 +30,7 @@ Builder.load_string(
     name: 'lists'
     orientation: 'vertical'
 
-    Toolbar:
+    MDToolbar:
         title:'List item with Checkbox'
         md_bg_color: app.theme_cls.primary_color
         elevation: 10
