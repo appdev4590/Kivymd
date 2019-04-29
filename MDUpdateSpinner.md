@@ -10,16 +10,15 @@ from kivy.clock import Clock
 
 from kivymd.theming import ThemeManager
 
-
 Builder.load_string("""
-#:import Toolbar kivymd.toolbar.Toolbar
+#:import MDToolbar kivymd.toolbar.MDToolbar
 #:import MDLabel kivymd.label.MDLabel
 #:import MDUpdateSpinner kivymd.updatespinner.MDUpdateSpinner
 
 <ExampleUpdateSpinner@BoxLayout>:
     orientation: 'vertical'
 
-    Toolbar:
+    MDToolbar:
         title: app.title
         md_bg_color: app.theme_cls.primary_color
         elevation: 10
@@ -29,14 +28,14 @@ Builder.load_string("""
 
         MDLabel:
             id: upd_lbl
-            font_style: 'Display2'
+            font_style: 'H3'
             theme_text_color: 'Primary'
             halign: 'center'
             pos_hint: {'center_x': .5, 'center_y': .6}
             size_hint_y: None
             height: self.texture_size[1] + dp(4)
             text: "Pull to string update"
-                    
+
         MDUpdateSpinner:
             event_update: lambda x: app.update_screen(self)
 """)
@@ -57,6 +56,7 @@ class Example(App):
                 self.tick = 0
                 self.screen_update_spinner.ids.upd_lbl.text = "New string"
                 Clock.unschedule(update_screen)
+
         Clock.schedule_interval(update_screen, 1)
 
     def build(self):
