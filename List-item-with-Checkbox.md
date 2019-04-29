@@ -16,7 +16,7 @@ Builder.load_string(
 '''
 #:import MDList kivymd.list.MDList
 #:import MDLabel kivymd.label.MDLabel
-#:import Toolbar kivymd.toolbar.MDToolbar
+#:import MDToolbar kivymd.toolbar.MDToolbar
 #:import OneLineAvatarIconListItem kivymd.list.OneLineAvatarIconListItem
 
 
