@@ -10,7 +10,7 @@ from kivy.factory import Factory
 from kivymd.theming import ThemeManager
 
 Builder.load_string("""
-#:import Toolbar kivymd.toolbar.Toolbar
+#:import MDToolbar kivymd.toolbar.MDToolbar
 #:import MDIconButton kivymd.button.MDIconButton
 #:import MDFloatingActionButton kivymd.button.MDFloatingActionButton
 #:import MDFlatButton kivymd.button.MDFlatButton
@@ -25,7 +25,7 @@ Builder.load_string("""
 <ExampleButtons@BoxLayout>:
     orientation: 'vertical'
 
-    Toolbar:
+    MDToolbar:
         id: toolbar
         title: app.title
         md_bg_color: app.theme_cls.primary_color
