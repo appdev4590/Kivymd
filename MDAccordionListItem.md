@@ -16,7 +16,7 @@ from kivymd.accordionlistitem import MDAccordionListItem
 from kivymd.toast import toast
 
 Builder.load_string("""
-#:import Toolbar kivymd.toolbar.Toolbar
+#:import Toolbar kivymd.toolbar.MDToolbar
 #:import get_hex_from_color kivy.utils.get_hex_from_color
 #:import TwoLineIconListItem kivymd.list.TwoLineIconListItem
 #:import OneLineIconListItem kivymd.list.OneLineIconListItem
@@ -72,7 +72,7 @@ Builder.load_string("""
 <ExampleAccordionList@BoxLayout>:
     orientation: 'vertical'
 
-    Toolbar:
+    MDToolbar:
         id: toolbar
         title: app.title
         md_bg_color: app.theme_cls.primary_color
