@@ -9,7 +9,7 @@ from kivy.lang import Builder
 from kivymd.theming import ThemeManager
 
 kv = """
-#:import Toolbar kivymd.toolbar.MDToolbar
+#:import MDToolbar kivymd.toolbar.MDToolbar
 #:import MDChip kivymd.chips.MDChip
 #:import MDChooseChip kivymd.chips.MDChooseChip
 #:import MDSeparator kivymd.cards.MDSeparator
