@@ -11,10 +11,11 @@ from kivymd.theming import ThemeManager
 from kivymd.toast import toast
 
 main_kv = """
-#:import Toolbar kivymd.toolbar.Toolbar
+#:import MDSeparator kivymd.cards.MDSeparator
+#:import MDToolbar kivymd.toolbar.MDToolbar
+##:import NavigationLayout kivymd.navigationdrawer.NavigationLayout
 #:import MDNavigationDrawer kivymd.navigationdrawer.MDNavigationDrawer
 #:import NavigationDrawerSubheader kivymd.navigationdrawer.NavigationDrawerSubheader
-
 
 <ContentNavigationDrawer@MDNavigationDrawer>:
     drawer_logo: 'demos/kitchen_sink/assets/drawer_logo.png'
@@ -32,7 +33,7 @@ NavigationLayout:
     BoxLayout:
         orientation: 'vertical'
 
-        Toolbar:
+        MDToolbar:
             id: toolbar
             title: 'KivyMD Kitchen Sink'
             md_bg_color: app.theme_cls.primary_color
@@ -48,7 +49,7 @@ NavigationLayout:
 
 class Example(App):
     theme_cls = ThemeManager()
-    theme_cls.primary_palette = 'Blue'
+    theme_cls.primary_palette = 'Teal'
     title = "Navigation Drawer"
     main_widget = None
 
