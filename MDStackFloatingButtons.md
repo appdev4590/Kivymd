@@ -13,13 +13,13 @@ from kivymd.stackfloatingbuttons import MDStackFloatingButtons
 
 
 Builder.load_string("""
-#:import Toolbar kivymd.toolbar.Toolbar
+#:import MDToolbar kivymd.toolbar.MDToolbar
 
 
 <ExampleFloatingButtons@BoxLayout>:
     orientation: 'vertical'
 
-    Toolbar:
+    MDToolbar:
         title: 'Stack Floating Buttons'
         md_bg_color: app.theme_cls.primary_color
         elevation: 10
@@ -47,10 +47,7 @@ class Example(App):
         if not self.create_stack_floating_buttons:
             screen.add_widget(MDStackFloatingButtons(
                 icon='lead-pencil',
-                floating_data={
-                    'Python': 'language-python',
-                    'Php': 'language-php',
-                    'C++': 'language-cpp'},
+                floating_data=self.floating_data,
                 callback=self.set_my_language))
             self.create_stack_floating_buttons = True
         return screen
