@@ -13,7 +13,7 @@ from kivymd.toast import toast
 
 
 Builder.load_string("""
-#:import Toolbar kivymd.toolbar.MDToolbar
+#:import MDToolbar kivymd.toolbar.MDToolbar
 
 
 <ExampleCardPost@BoxLayout>:
