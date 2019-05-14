@@ -96,3 +96,5 @@ If you want to use text instead of icons in tabs, simply assign a text value to 
 
 - *text_color_normal* - Text color of the label when it is not selected. VariableListProperty([1, 1, 1, .6])
 - *text_color_active* -  Text color of the label when it is selected. VariableListProperty([1])
+
+## Original AndroidTabs library - https://github.com/kivy-garden/garden.androidtabs
