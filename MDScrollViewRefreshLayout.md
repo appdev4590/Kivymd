@@ -1,6 +1,6 @@
 ![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/refesh-layout.gif)
 
-## Example of using a class MDUpdateSpinner:
+## Example of using a class MDScrollViewRefreshLayout:
 
 ```python
 from kivy.app import App
