@@ -1,6 +1,6 @@
 ![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/tabs.gif)
 
-## Example of using MDButtons:
+## Example of using MDTabs:
 
 ```python
 from kivy.app import App
