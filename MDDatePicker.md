@@ -55,7 +55,7 @@ KV = """
 """
 
 
-class TabsApp(App):
+class Example(App):
     theme_cls = ThemeManager()
     pickers = None
     previous_date = ''
@@ -81,5 +81,5 @@ class TabsApp(App):
         self.pickers.ids.date_picker_label.text = str(date_obj)
 
 
-TabsApp().run()
+Example().run()
 ```
