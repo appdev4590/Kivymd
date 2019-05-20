@@ -22,32 +22,34 @@ KV = """
 
     BoxLayout:
         orientation: 'vertical'
+        spacing: dp(20)
         pos_hint: {'center_x': .5, 'center_y': .5}
         size_hint_y: None
         height: self.minimum_height
 
         MDRaisedButton:
             text: "Open date picker"
-            size_hint: None, None
-            size: 3 * dp(48), dp(48)
-            pos_hint: {'center_x': .5, 'center_y': .5}
+            pos_hint: {'center_x': .5}
             opposite_colors: True
             on_release: app.show_example_date_picker()
+
         MDLabel:
             id: date_picker_label
             theme_text_color: 'Primary'
-            size_hint: None, None
-            size: dp(48)*3, dp(48)
-            pos_hint: {'center_x': .5, 'center_y': .5}
+            halign: 'center'
+
         BoxLayout:
-            size: dp(48)*3, dp(48)
-            size_hint: (None, None)
-            pos_hint: {'center_x': .5, 'center_y': .5}
-            MDLabel:
+            size_hint: None, None
+            size: self.minimum_size
+            pos_hint: {'center_x': .5}
+
+            Label:
                 theme_text_color: 'Primary'
                 text: "Start on previous date"
-                size_hint: None, None
-                size: dp(130), dp(48)
+                size_hint_x: None
+                width: self.texture_size[0]
+                color: 0, 0, 0, 1
+
             MDCheckbox:
                 id: date_picker_use_previous_date
                 size_hint: None, None
