@@ -10,7 +10,7 @@ from kivymd.theming import ThemeManager
 
 
 KV = """
-#:import MDBottomNavigation kivymd.tabs.MDBottomNavigation
+#:import MDBottomNavigation kivymd.bottomnavigation.MDBottomNavigation
 
 
 BoxLayout:
