@@ -17,6 +17,7 @@ from kivymd.theming import ThemableBehavior, ThemeManager
 Builder.load_string("""
 #:import Window kivy.core.window.Window
 #:import get_hex_from_color kivy.utils.get_hex_from_color
+
 #:import MDIconButton kivymd.button.MDIconButton
 #:import MDToolbar kivymd.toolbar.MDToolbar
 
@@ -41,7 +42,6 @@ Builder.load_string("""
     theme_text_color: 'Custom'
     text_color: color_grey
     divider: None
-
 
     AvatarSampleWidget:
         source: root.source
