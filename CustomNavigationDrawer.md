@@ -150,7 +150,7 @@ Builder.load_string("""
                 md_bg_color: app.theme_cls.primary_color
                 elevation: 10
                 left_action_items:
-                    [['menu', lambda x: app.root_screen.show_navigation_drawer()]]
+                    [['menu', lambda x: root.show_navigation_drawer()]]
 
             Widget:
 
