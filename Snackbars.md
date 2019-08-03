@@ -17,6 +17,7 @@ KV = """
 #:import Window kivy.core.window.Window
 #:import MDToolbar kivymd.toolbar.MDToolbar
 #:import MDRaisedButton kivymd.button.MDRaisedButton
+#:import MDFloatingActionButton kivymd.button.MDFloatingActionButton
 #:import MDSeparator kivymd.cards.MDSeparator
 #:import MDLabel kivymd.label.MDLabel
 
