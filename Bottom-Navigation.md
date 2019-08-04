@@ -4,74 +4,76 @@
 
 ```python
 from kivy.app import App
-from kivy.lang import Builder
-
 from kivymd.theming import ThemeManager
 
 
-KV = """
+class TabsApp(App):
+    theme_cls = ThemeManager()
+
+    def build(self):
+        return Builder.load_string(
+            '''
+#:import MDToolbar kivymd.toolbar.MDToolbar
 #:import MDBottomNavigation kivymd.bottomnavigation.MDBottomNavigation
+#:import MDBottomNavigationItem kivymd.bottomnavigation.MDBottomNavigationItem
 
 
 BoxLayout:
     orientation:'vertical'
 
+    MDToolbar:
+        id: toolbar
+        title: 'Test MDBottomNavigation'
+        md_bg_color: app.theme_cls.primary_color
+        left_action_items: [['menu', lambda x: '']]
+
     MDBottomNavigation:
 
         MDBottomNavigationItem:
-            name: 'movies'
-            text: 'Movies'
-            icon: "movie"
-
-            MDLabel:
-                font_style: 'Body1'
-                theme_text_color: 'Primary'
-                text: "Movie"
-                halign: 'center'
-
-        MDBottomNavigationItem:
-            name: 'files'
-            text: "Files"
-            icon: "file"
-
-            MDLabel:
-                font_style: 'Body1'
-                theme_text_color: 'Primary'
-                text: "Files"
-                halign: 'center'
-
-        MDBottomNavigationItem:
-            name: 'android'
-            text: "Android"
-            icon: "android"
-
-            MDLabel:
-                font_style: 'Body1'
-                theme_text_color: 'Primary'
-                text: "Android"
-                halign: 'center'
-
-        MDBottomNavigationItem:
-            name: 'python-language'
-            text: "Files"
+            name: 'files1'
+            text: 'Python'
             icon: 'language-python'
 
             MDLabel:
                 font_style: 'Body1'
                 theme_text_color: 'Primary'
-                text: "Python"
+                text: 'I love Python'
                 halign: 'center'
+
+        MDBottomNavigationItem:
+            name: 'files2'
+            text: 'C++'
+            icon: 'language-cpp'
+
+            MDLabel:
+                font_style: 'Body1'
+                theme_text_color: 'Primary'
+                text: 'I programming of C++'
+                halign: 'center'
+
+        MDBottomNavigationItem:
+            name: 'files3'
+            text: 'JS'
+            icon: 'language-javascript'
+
+            MDLabel:
+                font_style: 'Body1'
+                theme_text_color: 'Primary'
+                text: 'Oh god JS again'
+                halign: 'center'
+'''
+        )
+
+TabsApp().run()
 """
+```
 
+Or MDBottomNavigation with custom of panel color:
 
-class Example(App):
-    theme_cls = ThemeManager()
+![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/bottom-navigation-with-custom-color-panel.gif)
 
-    def build(self):
-        from kivy.core.window import Window
-        Window.size = (540, 720)
-        return Builder.load_string(KV)
-
-
-Example().run()
+```
+    MDBottomNavigation:
+        panel_color:
+            [0.2980392156862745, 0.2823529411764706, 0.32941176470588235, 1]
 ```
