@@ -70,7 +70,7 @@ Test().run()
 
 Or MDBottomNavigation with custom of panel color:
 
-![bottom-navigation-with-custom-color-panel.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/bottom-navigation-with-custom-color-panel.gif)
+![bottom-navigation-with-custom-color-panel.png](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/bottom-navigation-with-custom-color-panel.png)
 
 ```
     MDBottomNavigation:
