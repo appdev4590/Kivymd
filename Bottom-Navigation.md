@@ -7,7 +7,7 @@ from kivy.app import App
 from kivymd.theming import ThemeManager
 
 
-class TabsApp(App):
+class Test(App):
     theme_cls = ThemeManager()
 
     def build(self):
@@ -64,7 +64,7 @@ BoxLayout:
 '''
         )
 
-TabsApp().run()
+Test().run()
 """
 ```
 
