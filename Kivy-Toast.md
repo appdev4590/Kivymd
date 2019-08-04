@@ -13,6 +13,7 @@ class Test(App):
 
     def show_toast(self):
         toast('Test Kivy Toast')
+        # toast('Test Kivy Toast', duration=3)  # toast with user duration
 
     def build(self):
         return Builder.load_string(
