@@ -1,6 +1,6 @@
 ![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/accordionlistitem.gif)
 
-## Example of using MDAccordionListItem:
+## Example of using MDExpansionPanel:
 
 ```python
 from kivy.app import App
@@ -12,10 +12,10 @@ from kivy.uix.boxlayout import BoxLayout
 from kivymd.button import MDIconButton
 from kivymd.list import ILeftBodyTouch
 from kivymd.theming import ThemeManager
-from kivymd.accordionlistitem import MDAccordionListItem
+from kivymd.expansionpanel import MDExpansionPanel
 from kivymd.toast import toast
 
-Builder.load_string("""
+Builder.load_string('''
 #:import MDToolbar kivymd.toolbar.MDToolbar
 #:import get_hex_from_color kivy.utils.get_hex_from_color
 #:import TwoLineIconListItem kivymd.list.TwoLineIconListItem
@@ -23,7 +23,7 @@ Builder.load_string("""
 #:import MDRoundFlatButton kivymd.button.MDRoundFlatButton
 
 
-<ContentForAnimCard>:
+<ContentForAnimCard>
     orientation: 'vertical'
     padding: dp(10)
     spacing: dp(10)
@@ -54,7 +54,7 @@ Builder.load_string("""
         text: "Call Viber Out"
         on_press: root.callback(self.text)
         secondary_text:
-            "[color=%s]Advantageous rates for calls[/color]" \
+            "[color=%s]Advantageous rates for calls[/color]"\
             % get_hex_from_color(app.theme_cls.primary_color)
         IconLeftSampleWidget:
             icon: 'phone'
@@ -63,13 +63,13 @@ Builder.load_string("""
         text: "Call over mobile network"
         on_press: root.callback(self.text)
         secondary_text:
-            "[color=%s]Operator's tariffs apply[/color]" \
+            "[color=%s]Operator's tariffs apply[/color]"\
             % get_hex_from_color(app.theme_cls.primary_color)
         IconLeftSampleWidget:
             icon: 'remote'
 
 
-<ExampleAccordionList@BoxLayout>:
+<ExampleExpansionPanel@BoxLayout>
     orientation: 'vertical'
 
     MDToolbar:
@@ -89,7 +89,7 @@ Builder.load_string("""
                 cols: 1
                 size_hint_y: None
                 height: self.minimum_height
-""")
+''')
 
 
 class ContentForAnimCard(BoxLayout):
@@ -103,16 +103,16 @@ class IconLeftSampleWidget(ILeftBodyTouch, MDIconButton):
 class Example(App):
     theme_cls = ThemeManager()
     theme_cls.primary_palette = 'Blue'
-    title = "Example Accordion List"
+    title = "Example Expansion Panel"
     main_widget = None
 
     def build(self):
-        self.main_widget = Factory.ExampleAccordionList()
+        self.main_widget = Factory.ExampleExpansionPanel()
         return self.main_widget
 
     def on_start(self):
         def callback(text):
-            toast('{} to {}'.format(text, content.name_item))
+            toast(f'{text} to {content.name_item}')
 
         content = ContentForAnimCard(callback=callback)
         names_contacts = (
@@ -122,9 +122,9 @@ class Example(App):
 
         for name_contact in names_contacts:
             self.main_widget.ids.anim_list.add_widget(
-                MDAccordionListItem(content=content,
-                                    icon='data/logo/kivy-icon-128.png',
-                                    title=name_contact))
+                MDExpansionPanel(content=content,
+                                 icon='data/logo/kivy-icon-128.png',
+                                 title=name_contact))
 
 
 Example().run()
