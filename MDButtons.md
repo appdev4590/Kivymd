@@ -133,8 +133,11 @@ Builder.load_string("""
                     size_hint: None, None
                     size: self.texture_size
 
-
                 MDSeparator:
+
+            ########################################
+            #         CUSTOMIZATION BUTTONS
+            ########################################
 
             MDRaisedButton:
                 text: "MDRaisedButton"
