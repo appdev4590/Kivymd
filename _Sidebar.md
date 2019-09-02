@@ -1,8 +1,5 @@
-[KivyMD wiki](https://github.com/HeaTTheatR/KivyMD/wiki)
-========================================================
-
-Documentation
--------------
+[KivyMD Documentation](https://github.com/HeaTTheatR/KivyMD/wiki)
+-----------------------------------------------------------------
 
 
 ### Components
