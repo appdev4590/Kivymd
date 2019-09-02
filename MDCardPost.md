@@ -1,4 +1,4 @@
-![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/card.gif)
+![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/card.gif)
 
 ## Example of using a class MDCardPost:
 

@@ -1,4 +1,4 @@
-![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/time-picker.gif)
+![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/time-picker.gif)
 
 ## Example of using MDTimePicker:
 

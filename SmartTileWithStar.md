@@ -1,4 +1,4 @@
-![grid.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/grid.gif)
+![grid.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/grid.gif)
 
 ## Example of using MDSmatrTiles:
 

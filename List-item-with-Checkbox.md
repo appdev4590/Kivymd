@@ -1,4 +1,4 @@
-![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/list-item-with-checkbox.gif)
+![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/list-item-with-checkbox.gif)
 
 ## Example of using OneLineAvatarIconListItem with Checkbox:
 

@@ -1,8 +1,8 @@
 ### Dialog on Android
-![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/dialog.gif)
+![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/dialog.gif)
 
 ### Dialog on iOS
-![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/dialog_ios.gif)
+![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/dialog_ios.gif)
 ## Example of using a class MDDialogs:
 
 ```python

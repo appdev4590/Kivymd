@@ -1,4 +1,4 @@
-![chips.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/snackbar.gif)
+![chips.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/snackbar.gif)
 
 ## Example of using Snackbars:
 
@@ -122,7 +122,7 @@ ExampleSnackBar().run()
 
 ## Example of using MDFloatingActionButton with Snackbars:
 
-![chips.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/snackbar-2.gif)
+![chips.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/snackbar-2.gif)
 
 ```python
 from kivy.app import App

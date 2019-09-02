@@ -1,4 +1,4 @@
-![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/tabs.gif)
+![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/tabs.gif)
 
 ## Example of using MDTabs:
 
@@ -81,7 +81,7 @@ If you want to use text instead of icons in tabs, simply assign a text value to 
                 screen.ids.android_tabs.add_widget(tab)
 ```
 
-![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/tabs-text.gif)
+![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/tabs-text.gif)
 
 ## AndroidTabs properties
 

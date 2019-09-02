@@ -1,4 +1,4 @@
-![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/custom-navigation-drawer-icon-button.gif)
+![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/custom-navigation-drawer-icon-button.gif)
 
 ```python
 from kivy.app import App

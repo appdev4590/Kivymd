@@ -1,4 +1,4 @@
-![textfieldrect.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/md-text-field-round.gif)
+![textfieldrect.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/md-text-field-round.gif)
 
 ## Example of using MDTextFieldRound:
 

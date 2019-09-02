@@ -1,4 +1,4 @@
-![textfieldrect.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/textfieldrect.gif)
+![textfieldrect.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/textfieldrect.gif)
 
 ## Example of using MDTextFieldRect:
 

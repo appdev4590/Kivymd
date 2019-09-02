@@ -1,4 +1,4 @@
-![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/custom-navigation-drawer.gif)
+![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/custom-navigation-drawer.gif)
 
 [CustomNavigationDrawer](https://github.com/HeaTTheatR/CustomNavigationDrawer)
 

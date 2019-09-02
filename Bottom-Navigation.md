@@ -1,4 +1,4 @@
-![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/bottom-navigation.gif)
+![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/bottom-navigation.gif)
 
 ## Example of using MDBottomNavigation:
 
@@ -86,7 +86,7 @@ Test().run()
 
 Or MDBottomNavigation with custom of panel color:
 
-![bottom-navigation-with-custom-color-panel.png](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/bottom-navigation-with-custom-color-panel.png)
+![bottom-navigation-with-custom-color-panel.png](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/bottom-navigation-with-custom-color-panel.png)
 
 ```
     MDBottomNavigation:

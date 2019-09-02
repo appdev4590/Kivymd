@@ -1,4 +1,4 @@
-![popupscreen.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/popupscreen.gif)
+![popupscreen.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/popupscreen.gif)
 
 ## Example of using MDPopupScreen:
 

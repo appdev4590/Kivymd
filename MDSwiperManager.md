@@ -1,4 +1,4 @@
-![managerswiper.gif](https://github.com/HeaTTheatR/KivyMD-data/blob/master/gallery/managerswiper.gif)
+![managerswiper.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/managerswiper.gif)
 
 ## Example of using MDSwiperManager:
 
