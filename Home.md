@@ -2,6 +2,26 @@ Welcome to the KivyMD wiki!
 ===========================
 
 
+Useful links
+------------
+
+* [Official Material Design specification](https://material.io/)
+* [Material Design Icons](https://materialdesignicons.com/)
+
+#### KivyMD links
+
+* [Repository](https://github.com/HeaTTheatR/KivyMD)
+* [Original Repository (old)](https://gitlab.com/kivymd/KivyMD)
+* [This Wiki](https://github.com/HeaTTheatR/KivyMD/wiki)
+* [Project on PyPI](https://pypi.org/project/kivymd/)
+
+#### Projects using KivyMD
+
+[Find on GitHub](https://github.com/HeaTTheatR/KivyMD/network/dependents)
+
+* [Creator Kivy Project](https://github.com/HeaTTheatR/CreatorKivyProject) - Wizard for creating a new project for applications written using the Kivy framework
+
+
 Documentation
 -------------
 
