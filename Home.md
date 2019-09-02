@@ -8,14 +8,14 @@ Useful links
 * [Official Material Design specification](https://material.io/)
 * [Material Design Icons](https://materialdesignicons.com/)
 
-#### KivyMD links
+### KivyMD links
 
 * [Repository](https://github.com/HeaTTheatR/KivyMD)
 * [Original Repository (old)](https://gitlab.com/kivymd/KivyMD)
 * [This Wiki](https://github.com/HeaTTheatR/KivyMD/wiki)
 * [Project on PyPI](https://pypi.org/project/kivymd/)
 
-#### Projects using KivyMD
+### Projects using KivyMD
 
 [Find on GitHub](https://github.com/HeaTTheatR/KivyMD/network/dependents)
 
@@ -26,7 +26,7 @@ Documentation
 -------------
 
 
-#### Components
+### Components
 
 * [Bottom App Bar](Components-Bottom-App-Bar)
 * [Bottom Navigation](Components-Bottom-Navigation)
@@ -57,7 +57,6 @@ Documentation
 * [Time Picker](Components-Time-Picker)
 * [User Animation Card](Components-User-Animation-Card)
 
-
-#### Modules
+### Modules
 
 * [Toast](Toast)
