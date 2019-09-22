@@ -11,11 +11,6 @@ from kivymd.theming import ThemeManager
 
 
 KV = """
-#:import MDCheckbox kivymd.selectioncontrols.MDCheckbox
-#:import MDLabel kivymd.label.MDLabel
-#:import MDRaisedButton kivymd.button.MDRaisedButton
-
-
 <Pickers@Screen>
     name: 'pickers'
 
@@ -83,5 +78,6 @@ class Example(App):
         self.previous_time = time
 
 
-Example().run()
+if __name__ == "__main__":
+    Example().run()
 ```

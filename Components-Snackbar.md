@@ -9,17 +9,12 @@ from kivy.clock import Clock
 from kivy.metrics import dp
 from kivy.lang import Builder
 
-from kivymd.snackbars import Snackbar
+from kivymd.uix.snackbar import Snackbar
 from kivymd.theming import ThemeManager
 from kivymd.toast import toast
 
 KV = """
 #:import Window kivy.core.window.Window
-#:import MDToolbar kivymd.toolbar.MDToolbar
-#:import MDRaisedButton kivymd.button.MDRaisedButton
-#:import MDFloatingActionButton kivymd.button.MDFloatingActionButton
-#:import MDSeparator kivymd.cards.MDSeparator
-#:import MDLabel kivymd.label.MDLabel
 
 
 Screen:
@@ -117,7 +112,8 @@ class ExampleSnackBar(App):
                 anim.start(self.screen.ids.button)
 
 
-ExampleSnackBar().run()
+if __name__ == "__main__":
+    ExampleSnackBar().run()
 ```
 
 ## Example of using MDFloatingActionButton with Snackbars:
@@ -131,14 +127,12 @@ from kivy.clock import Clock
 from kivy.metrics import dp
 from kivy.lang import Builder
 
-from kivymd.snackbars import Snackbar
+from kivymd.uix.snackbar import Snackbar
 from kivymd.theming import ThemeManager
 from kivymd.toast import toast
 
 KV = """
 #:import Window kivy.core.window.Window
-#:import Toolbar kivymd.toolbar.Toolbar
-#:import MDFloatingActionButton kivymd.button.MDFloatingActionButton
 
 
 Screen:
@@ -192,5 +186,6 @@ class ExampleSnackBar(App):
             anim.start(self.screen.ids.button)
 
 
-ExampleSnackBar().run()
+if __name__ == "__main__":
+    ExampleSnackBar().run()
 ```

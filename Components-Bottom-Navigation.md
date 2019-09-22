@@ -4,6 +4,7 @@
 
 ```python
 from kivy.app import App
+from kivy.lang import Builder
 from kivymd.theming import ThemeManager
 
 
@@ -13,12 +14,6 @@ class Test(App):
     def build(self):
         return Builder.load_string(
             '''
-#:import MDToolbar kivymd.toolbar.MDToolbar
-#:import MDBottomNavigation kivymd.bottomnavigation.MDBottomNavigation
-#:import MDBottomNavigationItem kivymd.bottomnavigation.MDBottomNavigationItem
-#:import MDSwitch kivymd.selectioncontrols.MDSwitch
-
-
 BoxLayout:
     orientation:'vertical'
 
@@ -81,7 +76,9 @@ BoxLayout:
                 halign: 'center'
 ''')
 
-Test().run()
+
+if __name__ == "__main__":
+    Test().run()
 ```
 
 Or MDBottomNavigation with custom of panel color:

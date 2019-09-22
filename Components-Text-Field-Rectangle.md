@@ -14,10 +14,6 @@ from kivymd.theming import ThemeManager
 from kivymd.utils.cropimage import crop_image
 
 Builder.load_string("""
-#:import MDRoundFlatButton kivymd.button.MDRoundFlatButton
-#:import MDTextFieldRect kivymd.textfields.MDTextFieldRect
-
-
 <ExampleMDTextFieldRect@BoxLayout>:
     orientation: 'vertical'
     spacing: dp(10)
@@ -97,5 +93,6 @@ class Example(App):
         return self.main_widget
 
 
-Example().run()
+if __name__ == "__main__":
+    Example().run()
 ```

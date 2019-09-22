@@ -11,15 +11,12 @@ from kivy.properties import StringProperty
 from kivy.uix.image import Image
 from kivy.uix.screenmanager import Screen
 
-from kivymd.list import ILeftBody, OneLineAvatarListItem
+from kivymd.uix.list import ILeftBody, OneLineAvatarListItem
 from kivymd.theming import ThemableBehavior, ThemeManager
 
 Builder.load_string("""
 #:import Window kivy.core.window.Window
 #:import get_hex_from_color kivy.utils.get_hex_from_color
-
-#:import MDIconButton kivymd.button.MDIconButton
-#:import MDToolbar kivymd.toolbar.MDToolbar
 
 #:set color_lilac_very_light [0.5215686274509804, 0.37254901960784315, 0.9450980392156862, 1]
 #:set color_grey_dark [0.18823529411764706, 0.19215686274509805, 0.30980392156862746, 1]
@@ -206,5 +203,6 @@ class TestCustomNavigationDrawer(App):
         return self.root_screen
 
 
-TestCustomNavigationDrawer().run()
+if __name__ == "__main__":
+    TestCustomNavigationDrawer().run()
 ```

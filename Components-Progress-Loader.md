@@ -9,17 +9,13 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.factory import Factory
 
-from kivymd.progressloader import MDProgressLoader
+from kivymd.uix.progressloader import MDProgressLoader
 from kivymd.theming import ThemeManager
 from kivymd.toast import toast
 
 
 Builder.load_string(
 '''
-#:import MDToolbar kivymd.toolbar.MDToolbar
-#:import MDRoundFlatIconButton kivymd.button.MDRoundFlatIconButton
-
-
 <Root@BoxLayout>:
     orientation: 'vertical'
     spacing: dp(5)
@@ -83,5 +79,6 @@ class Example(App):
         toast('Done')
 
 
-Example().run()
+if __name__ == "__main__":
+    Example().run()
 ```

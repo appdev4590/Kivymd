@@ -10,11 +10,6 @@ from kivy.factory import Factory
 from kivymd.theming import ThemeManager
 
 Builder.load_string("""
-#:import Toolbar kivymd.toolbar.Toolbar
-#:import MDTextField kivymd.textfields.MDTextField
-#:import MDTextFieldClear kivymd.textfields.MDTextFieldClear
-
-
 <ExampleTextFields@BoxLayout>:
     orientation: 'vertical'
 
@@ -103,5 +98,6 @@ class Example(App):
         return Factory.ExampleTextFields()
 
 
-Example().run()
+if __name__ == "__main__":
+    Example().run()
 ```

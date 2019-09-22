@@ -1,30 +1,23 @@
+> Attention! This is an experimental widget.
+> Perhaps the wrong positioning of the screens with a large number of them.
+
 ![fansceernmanager.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/fansceernmanager.gif)
 
 ## Example of using MDFanScreenManager:
-
-Attention! This is an experimental widget.
-Perhaps the wrong positioning of the screens with a large number of them.
-
-Thanks for reply - https://groups.google.com/forum/#!topic/kivy-users/ReAVg8eDrDo
 
 ```python
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 
-from kivymd.button import MDIconButton
-from kivymd.fanscreenmanager import MDFanScreen
-from kivymd.list import ILeftBodyTouch
+from kivymd.uix.button import MDIconButton
+from kivymd.uix.fanscreenmanager import MDFanScreen
+from kivymd.uix.list import ILeftBodyTouch
 from kivymd.theming import ThemeManager
 
 
 Builder.load_string("""
 #:import get_hex_from_color kivy.utils.get_hex_from_color
-#:import MDToolbar kivymd.toolbar.MDToolbar
-#:import MDFanScreenManager kivymd.fanscreenmanager.MDFanScreenManager
-#:import OneLineIconListItem kivymd.list.OneLineIconListItem
-#:import MDRoundFlatButton kivymd.button.MDRoundFlatButton
-#:import MDTextFieldRect kivymd.textfields.MDTextFieldRect
 
 
 <TestFanScreenManager>:
@@ -208,5 +201,6 @@ class MyApp(App):
         return TestFanScreenManager()
 
 
-MyApp().run()
+if __name__ == "__main__":
+    MyApp().run()
 ```

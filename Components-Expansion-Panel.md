@@ -1,3 +1,5 @@
+> MDExpansionPanel will be added in KivyMD v0.101.0
+
 ![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/accordionlistitem.gif)
 
 ## Example of using MDExpansionPanel:
@@ -9,18 +11,14 @@ from kivy.factory import Factory
 from kivy.properties import ObjectProperty
 from kivy.uix.boxlayout import BoxLayout
 
-from kivymd.button import MDIconButton
-from kivymd.list import ILeftBodyTouch
+from kivymd.uix.button import MDIconButton
+from kivymd.uix.list import ILeftBodyTouch
 from kivymd.theming import ThemeManager
-from kivymd.expansionpanel import MDExpansionPanel
+from kivymd.uix.expansionpanel import MDExpansionPanel
 from kivymd.toast import toast
 
 Builder.load_string('''
-#:import MDToolbar kivymd.toolbar.MDToolbar
 #:import get_hex_from_color kivy.utils.get_hex_from_color
-#:import TwoLineIconListItem kivymd.list.TwoLineIconListItem
-#:import OneLineIconListItem kivymd.list.OneLineIconListItem
-#:import MDRoundFlatButton kivymd.button.MDRoundFlatButton
 
 
 <ContentForAnimCard>
@@ -127,5 +125,6 @@ class Example(App):
                                  title=name_contact))
 
 
-Example().run()
+if __name__ == "__main__":
+    Example().run()
 ```

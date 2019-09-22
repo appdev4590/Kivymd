@@ -6,23 +6,9 @@
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.factory import Factory
-
 from kivymd.theming import ThemeManager
 
 Builder.load_string("""
-#:import MDToolbar kivymd.toolbar.MDToolbar
-#:import MDIconButton kivymd.button.MDIconButton
-#:import MDFloatingActionButton kivymd.button.MDFloatingActionButton
-#:import MDFlatButton kivymd.button.MDFlatButton
-#:import MDRaisedButton kivymd.button.MDRaisedButton
-#:import MDRectangleFlatButton kivymd.button.MDRectangleFlatButton
-#:import MDRoundFlatButton kivymd.button.MDRoundFlatButton
-#:import MDRoundFlatIconButton kivymd.button.MDRoundFlatIconButton
-#:import MDFillRoundFlatButton kivymd.button.MDFillRoundFlatButton
-#:import MDTextButton kivymd.button.MDTextButton
-#:import MDSeparator kivymd.cards.MDSeparator
-
-
 <ExampleButtons@BoxLayout>:
     orientation: 'vertical'
 
@@ -219,5 +205,6 @@ class Example(App):
         return Factory.ExampleButtons()
 
 
-Example().run()
+if __name__ == "__main__":
+    Example().run()
 ```

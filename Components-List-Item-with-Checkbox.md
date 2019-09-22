@@ -9,17 +9,11 @@ from kivy.factory import Factory
 from kivy.uix.image import Image
 
 from kivymd.theming import ThemeManager
-from kivymd.list import IRightBodyTouch, ILeftBody
-from kivymd.selectioncontrols import MDCheckbox
+from kivymd.uix.list import IRightBodyTouch, ILeftBody
+from kivymd.uix.selectioncontrol import MDCheckbox
 
 Builder.load_string(
 '''
-#:import MDList kivymd.list.MDList
-#:import MDLabel kivymd.label.MDLabel
-#:import MDToolbar kivymd.toolbar.MDToolbar
-#:import OneLineAvatarIconListItem kivymd.list.OneLineAvatarIconListItem
-
-
 <ListItemWithCheckbox@OneLineAvatarIconListItem>:
     MyAvatar:
         source: 'data/logo/kivy-icon-128.png'
@@ -62,5 +56,6 @@ class Example(App):
         return list
 
 
-Example().run()
+if __name__ == "__main__":
+    Example().run()
 ```

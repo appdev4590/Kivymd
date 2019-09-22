@@ -9,17 +9,13 @@ from kivy.lang import Builder
 from kivy.factory import Factory
 from kivy.uix.modalview import ModalView
 
-from kivymd.filemanager import MDFileManager
+from kivymd.uix.filemanager import MDFileManager
 from kivymd.theming import ThemeManager
 from kivymd.toast import toast
 
 
 Builder.load_string(
 '''
-#:import MDToolbar kivymd.toolbar.MDToolbar
-#:import MDRoundFlatIconButton kivymd.button.MDRoundFlatIconButton
-
-
 <ExampleFileManager@BoxLayout>:
     orientation: 'vertical'
     spacing: dp(5)
@@ -93,7 +89,8 @@ class Example(App):
         return True
 
 
-Example().run()
+if __name__ == "__main__":
+    Example().run()
 ```
 
 ## Example of using a class MDFileManager with previous mode:

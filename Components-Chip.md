@@ -5,17 +5,9 @@
 ```python
 from kivy.app import App
 from kivy.lang import Builder
-
 from kivymd.theming import ThemeManager
 
 kv = """
-#:import MDToolbar kivymd.toolbar.MDToolbar
-#:import MDChip kivymd.chips.MDChip
-#:import MDChooseChip kivymd.chips.MDChooseChip
-#:import MDSeparator kivymd.cards.MDSeparator
-#:import MDLabel kivymd.label.MDLabel
-
-
 BoxLayout:
     orientation: 'vertical'
     spacing: dp(10)
@@ -158,5 +150,6 @@ class MyApp(App):
         return Builder.load_string(kv)
 
 
-MyApp().run()
+if __name__ == "__main__":
+    MyApp().run()
 ```

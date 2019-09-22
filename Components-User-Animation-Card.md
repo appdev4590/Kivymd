@@ -9,16 +9,13 @@ from kivy.factory import Factory
 
 from kivymd.toast import toast
 from kivymd.theming import ThemeManager
-from kivymd.useranimationcard import MDUserAnimationCard
-from kivymd.button import MDIconButton
-from kivymd.list import ILeftBodyTouch
+from kivymd.uix.useranimationcard import MDUserAnimationCard
+from kivymd.uix.button import MDIconButton
+from kivymd.uix.list import ILeftBodyTouch
 
 # Your content for a contact card.
 Builder.load_string("""
 #:import get_hex_from_color kivy.utils.get_hex_from_color
-#:import TwoLineIconListItem kivymd.list.TwoLineIconListItem
-#:import OneLineIconListItem kivymd.list.OneLineIconListItem
-#:import MDRoundFlatButton kivymd.button.MDRoundFlatButton
 
 
 <TestAnimationCard@BoxLayout>:
@@ -86,5 +83,6 @@ class Example(App):
         self.user_animation_card.open()
 
 
-Example().run()
+if __name__ == "__main__":
+    Example().run()
 ```

@@ -10,8 +10,6 @@ from kivy.factory import Factory
 from kivymd.theming import ThemeManager
 
 Builder.load_string('''
-#:import MDTextFieldRound kivymd.textfields.MDTextFieldRound
-
 #:set color_shadow [0, 0, 0, .2980392156862745]
 #:set color_lilac [.07058823529411765, .07058823529411765, .14901960784313725, .8]
 

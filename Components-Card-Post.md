@@ -7,15 +7,12 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.factory import Factory
 
-from kivymd.cards import MDCardPost
+from kivymd.uix.card import MDCardPost
 from kivymd.theming import ThemeManager
 from kivymd.toast import toast
 
 
 Builder.load_string("""
-#:import MDToolbar kivymd.toolbar.MDToolbar
-
-
 <ExampleCardPost@BoxLayout>:
     orientation: 'vertical'
     spacing: dp(5)
@@ -104,5 +101,6 @@ class Example(App):
                     buttons=buttons))
 
 
-Example().run()
+if __name__ == "__main__":
+    Example().run()
 ```

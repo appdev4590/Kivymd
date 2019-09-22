@@ -18,10 +18,6 @@ class Test(App):
     def build(self):
         return Builder.load_string(
             '''
-#:import MDToolbar kivymd.toolbar.MDToolbar
-#:import MDRaisedButton kivymd.button.MDRaisedButton
-
-
 BoxLayout:
     orientation:'vertical'
 
@@ -41,5 +37,7 @@ BoxLayout:
 '''
         )
 
-Test().run()
+
+if __name__ == "__main__":
+    Test().run()
 ```

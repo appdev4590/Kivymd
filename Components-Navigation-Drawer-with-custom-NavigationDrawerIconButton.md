@@ -6,18 +6,11 @@ from kivy.lang import Builder
 from kivy.properties import StringProperty
 from kivy.uix.image import Image
 
-from kivymd.list import ILeftBody, OneLineAvatarListItem
+from kivymd.uix.list import ILeftBody, OneLineAvatarListItem
 from kivymd.theming import ThemeManager
 from kivymd.toast import toast
 
 main_kv = """
-#:import MDSeparator kivymd.cards.MDSeparator
-#:import MDToolbar kivymd.toolbar.MDToolbar
-##:import NavigationLayout kivymd.navigationdrawer.NavigationLayout
-#:import MDNavigationDrawer kivymd.navigationdrawer.MDNavigationDrawer
-#:import NavigationDrawerSubheader kivymd.navigationdrawer.NavigationDrawerSubheader
-
-
 <ContentNavigationDrawer@MDNavigationDrawer>
     drawer_logo: 'demos/kitchen_sink/assets/drawer_logo.png'
 
@@ -89,5 +82,6 @@ class Example(App):
             )
 
 
-Example().run()
+if __name__ == "__main__":
+    Example().run()
 ```

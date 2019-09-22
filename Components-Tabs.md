@@ -8,14 +8,10 @@ from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 
 from kivymd.icon_definitions import md_icons
-from kivymd.tabs import MDTabsBase
+from kivymd.uix.tabs import MDTabsBase
 from kivymd.theming import ThemeManager
 
 demo = """
-#:import MDToolbar kivymd.toolbar.MDToolbar
-#:import MDLabel kivymd.label.MDLabel
-
-
 <Example@BoxLayout>
     orientation: 'vertical'
 

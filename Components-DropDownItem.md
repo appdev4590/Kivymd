@@ -6,14 +6,10 @@
 from kivy.app import App
 from kivy.factory import Factory
 from kivy.lang import Builder
-
 from kivymd.theming import ThemeManager
 
 Builder.load_string(
     '''
-#:import MDToolbar kivymd.toolbar.MDToolbar
-#:import MDRaisedButton kivymd.button.MDRaisedButton
-#:import MDDropDownItem kivymd.dropdownitem.MDDropDownItem
 #:import toast kivymd.toast.toast
 
 
@@ -50,5 +46,6 @@ class Test(App):
         return Factory.MyRoot()
 
 
-Test().run()
+if __name__ == "__main__":
+    Test().run()
 ```

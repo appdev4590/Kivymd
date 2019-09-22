@@ -8,13 +8,9 @@ from kivy.lang import Builder
 
 from kivymd.theming import ThemeManager
 from kivymd.toast import toast
-from kivymd.toolbar import MDBottomAppBar
+from kivymd.uix.toolbar import MDBottomAppBar
 
 kv = """
-#:import MDRaisedButton kivymd.button.MDRaisedButton
-#:import MDLabel kivymd.label.MDLabel
-
-
 BoxLayout:
     spacing: dp(10)
     orientation: 'vertical'
@@ -78,5 +74,6 @@ class MyApp(App):
         toast('Press Button')
 
 
-MyApp().run()
+if __name__ == "__main__":
+    MyApp().run()
 ```

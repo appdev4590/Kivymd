@@ -9,16 +9,12 @@ from kivy.lang import Builder
 from kivy.factory import Factory
 from kivy.properties import StringProperty
 
-from kivymd.button import MDIconButton
+from kivymd.uix.button import MDIconButton
 from kivymd.icon_definitions import md_icons
-from kivymd.list import ILeftBodyTouch, OneLineIconListItem
+from kivymd.uix.list import ILeftBodyTouch, OneLineIconListItem
 from kivymd.theming import ThemeManager
 
 Builder.load_string('''
-#:import MDToolbar kivymd.toolbar.MDToolbar
-#:import MDScrollViewRefreshLayout kivymd.refreshlayout.MDScrollViewRefreshLayout
-
-
 <ItemForList>
     text: root.text
 
@@ -95,5 +91,6 @@ class Example(App):
         Clock.schedule_once(refresh_callback, 1)
 
 
-Example().run()
+if __name__ == "__main__":
+    Example().run()
 ```

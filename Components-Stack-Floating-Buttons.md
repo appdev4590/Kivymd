@@ -9,13 +9,10 @@ from kivy.factory import Factory
 
 from kivymd.toast import toast
 from kivymd.theming import ThemeManager
-from kivymd.stackfloatingbuttons import MDStackFloatingButtons
+from kivymd.uix.stackfloatingbutton import MDStackFloatingButtons
 
 
 Builder.load_string("""
-#:import MDToolbar kivymd.toolbar.MDToolbar
-
-
 <ExampleFloatingButtons@BoxLayout>:
     orientation: 'vertical'
 
@@ -53,5 +50,6 @@ class Example(App):
         return screen
 
 
-Example().run()
+if __name__ == "__main__":
+    Example().run()
 ```

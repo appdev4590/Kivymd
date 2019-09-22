@@ -12,11 +12,6 @@ from kivymd.theming import ThemeManager
 from kivymd.utils.cropimage import crop_image
 
 kv = """
-#:import MDToolbar kivymd.toolbar.MDToolbar
-#:import SmartTileWithLabel kivymd.grid.SmartTileWithLabel
-#:import SmartTileWithStar kivymd.grid.SmartTileWithStar
-
-
 <MySmartTileWithLabel@SmartTileWithLabel>:
     mipmap: True
     font_style: 'Subhead'
@@ -123,5 +118,6 @@ class MyApp(App):
         instance.source = path_to_crop_image
 
 
-MyApp().run()
+if __name__ == "__main__":
+    MyApp().run()
 ```

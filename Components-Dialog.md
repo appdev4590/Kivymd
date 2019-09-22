@@ -11,15 +11,11 @@ from kivy.lang import Builder
 from kivy.factory import Factory
 from kivy.utils import get_hex_from_color
 
-from kivymd.dialog import MDInputDialog, MDDialog
+from kivymd.uix.dialog import MDInputDialog, MDDialog
 from kivymd.theming import ThemeManager
 
 
 Builder.load_string('''
-#:import MDToolbar kivymd.toolbar.MDToolbar
-#:import MDRectangleFlatButton kivymd.button.MDRectangleFlatButton
-
-
 <ExampleDialogs@BoxLayout>
     orientation: 'vertical'
     spacing: dp(5)
@@ -75,7 +71,8 @@ class Example(App):
         dialog.open()
 
 
-Example().run()
+if __name__ == "__main__":
+    Example().run()
 ```
 
 In the dialog you can use two buttons:

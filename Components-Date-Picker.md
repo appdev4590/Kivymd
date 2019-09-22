@@ -8,15 +8,10 @@ from kivy.lang import Builder
 from kivy.factory import Factory
 
 from kivymd.theming import ThemeManager
-from kivymd.pickers import MDDatePicker
+from kivymd.uix.picker import MDDatePicker
 
 
 KV = """
-#:import MDCheckbox kivymd.selectioncontrols.MDCheckbox
-#:import MDLabel kivymd.label.MDLabel
-#:import MDRaisedButton kivymd.button.MDRaisedButton
-
-
 <Pickers@Screen>
     name: 'pickers'
 
@@ -83,5 +78,6 @@ class Example(App):
         self.pickers.ids.date_picker_label.text = str(date_obj)
 
 
-Example().run()
+if __name__ == "__main__":
+    Example().run()
 ```
