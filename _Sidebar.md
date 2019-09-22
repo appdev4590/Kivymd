@@ -28,7 +28,7 @@
 * [Swiper Manager](Components-Swiper-Manager)
 * [Tabs](Components-Tabs)
 * [Text Field](Components-Text-Field)
-  * [Text Field Rectangle](Components-Text-Field-Rect)
+  * [Text Field Rectangle](Components-Text-Field-Rectangle)
   * [Text Field Round](Components-Text-Field-Round)
 * [Time Picker](Components-Time-Picker)
 * [User Animation Card](Components-User-Animation-Card)
