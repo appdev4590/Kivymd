@@ -24,6 +24,7 @@
 * [Refresh Layout](Components-Refresh-Layout)
 * [SmartTileWithStar](Components-SmartTileWithStar)
 * [Snackbar](Components-Snackbar)
+* [Slider and ProgressBar](Components-Slider-and-ProgressBar)
 * [Stack Floating Buttons](Components-Stack-Floating-Buttons)
 * [Swiper Manager](Components-Swiper-Manager)
 * [Tabs](Components-Tabs)
