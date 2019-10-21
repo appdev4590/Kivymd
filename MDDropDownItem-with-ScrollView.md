@@ -14,9 +14,6 @@ from kivymd.uix.list import IRightBodyTouch, ThreeLineRightIconListItem
 
 Builder.load_string(
     """
-#:import Window kivy.core.window.Window
-
-
 <Item>:
     height: dp(56)
     text: "A button with"
