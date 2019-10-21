@@ -36,6 +36,7 @@ Documentation
 * [Date Picker](Components-Date-Picker)
 * [Dialog](Components-Dialog)
 * [DropDownItem](Components-DropDownItem)
+  * [DropDownItem with ScrollView](Components-DropDownItem-with-ScrollView)
 * [Expansion Panel](Components-Expansion-Panel)
 * [Fan Screen Manager](Components-Fan-Screen-Manager)
 * [File Manager](Components-File-Manager)
