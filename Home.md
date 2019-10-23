@@ -29,6 +29,7 @@ Documentation
 ### Components
 
 * [Bottom App Bar](Components-Bottom-App-Bar)
+* [Bottom Sheet](Components-Bottom-Sheet)
 * [Bottom Navigation](Components-Bottom-Navigation)
 * [Button](Components-Button)
 * [Card Post](Components-Card-Post)
@@ -44,7 +45,6 @@ Documentation
 * [Navigation Drawer](Components-Navigation-Drawer)
   * [Navigation Drawer Customization](Components-Navigation-Drawer-Custom)
   * [Navigation Drawer with Custom NavigationDrawerIconButton](Components-Navigation-Drawer-with-custom-NavigationDrawerIconButton)
-* [Popup Screen](Components-Popup-Screen)
 * [Progress Loader](Components-Progress-Loader)
 * [Refresh Layout](Components-Refresh-Layout)
 * [SmartTileWithStar](Components-SmartTileWithStar)
