@@ -12,6 +12,7 @@
 * [Chip](Components-Chip)
 * [Date Picker](Components-Date-Picker)
 * [Dialog](Components-Dialog)
+* [DropDownMenu](Components-DropDownMenu)
 * [DropDownItem](Components-DropDownItem)
   * [DropDownItem with ScrollView](Components-DropDownItem-with-ScrollView)
 * [Expansion Panel](Components-Expansion-Panel)
