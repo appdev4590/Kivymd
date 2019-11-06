@@ -61,7 +61,7 @@ class Example(App):
         return self.pickers
 
     def show_example_time_picker(self):
-        from kivymd.pickers import MDTimePicker
+        from kivymd.uix.picker import MDTimePicker
 
         time_dialog = MDTimePicker()
         time_dialog.bind(time=self.get_time_picker_date)
