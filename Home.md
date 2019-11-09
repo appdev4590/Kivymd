@@ -20,7 +20,7 @@ Useful links
 [Find on GitHub](https://github.com/HeaTTheatR/KivyMD/network/dependents)
 
 * [Creator Kivy Project](https://github.com/HeaTTheatR/CreatorKivyProject) - Wizard for creating a new project for applications written using the Kivy framework
-
+* [Expense Tracker](https://github.com/adityabhawsingka/ExpenseTracker) - Android app for maintaining a list of expenses done over several days, months and years.
 
 Documentation
 -------------
