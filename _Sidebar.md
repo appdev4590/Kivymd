@@ -29,6 +29,7 @@
 * [Slider and ProgressBar](Components-Slider-and-ProgressBar)
 * [Stack Floating Buttons](Components-Stack-Floating-Buttons)
 * [Swiper Manager](Components-Swiper-Manager)
+* [Tabs](Components-Tooltips)
 * [Tabs](Components-Tabs)
 * [Text Field](Components-Text-Field)
   * [Text Field Rectangle](Components-Text-Field-Rectangle)
