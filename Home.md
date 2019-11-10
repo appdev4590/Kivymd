@@ -59,6 +59,7 @@ Documentation
 * [Stack Floating Buttons](Components-Stack-Floating-Buttons)
 * [Swiper Manager](Components-Swiper-Manager)
 * [Tabs](Components-Tabs)
+* [Tooltips](Components-Tooltips)
 * [Text Field](Components-Text-Field)
   * [Text Field Rectangle](Components-Text-Field-Rectangle)
   * [Text Field Round](Components-Text-Field-Round)
