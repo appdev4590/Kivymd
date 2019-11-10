@@ -67,3 +67,8 @@ class Test(MDApp):
 
 Test().run()
 ```
+
+## MDTooltip Behavior on Mobile:
+
+![chips.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/tooltips-on-mobile.gif)
+
