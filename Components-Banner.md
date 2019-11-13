@@ -14,7 +14,6 @@ Builder.load_string("""
     MDBanner:
         id: banner
         over_widget: scroll
-            
 
     MDToolbar:
         id: toolbar
