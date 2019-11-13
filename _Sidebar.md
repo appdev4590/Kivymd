@@ -4,6 +4,7 @@
 
 ### Components
 
+* [Banner](Components-Banner)
 * [Bottom App Bar](Components-Bottom-App-Bar)
 * [Bottom Sheet](Components-Bottom-Sheet)
 * [Bottom Navigation](Components-Bottom-Navigation)
