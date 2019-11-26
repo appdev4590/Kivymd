@@ -1,5 +1,3 @@
-> MDExpansionPanel will be added in KivyMD v0.101.0
-
 ![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/accordionlistitem.gif)
 
 ## Example of using MDExpansionPanel:
