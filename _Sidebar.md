@@ -41,4 +41,4 @@
 
 ### Modules
 
-* [Toast](Toast)
+* [Toast](Modules-Toast)
