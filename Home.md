@@ -31,6 +31,11 @@ Useful links
 Documentation
 -------------
 
+### Modules
+
+* [Material App](Modules-Material-App)
+* [Toast](Modules-Toast)
+
 ### Components
 
 * [Backdrop](Components-Backdrop)
@@ -67,7 +72,3 @@ Documentation
   * [Text Field Round](Components-Text-Field-Round)
 * [Time Picker](Components-Time-Picker)
 * [User Animation Card](Components-User-Animation-Card)
-
-### Modules
-
-* [Toast](Modules-Toast)

@@ -1,6 +1,10 @@
 [KivyMD Documentation](https://github.com/HeaTTheatR/KivyMD/wiki)
 -----------------------------------------------------------------
 
+### Modules
+
+* [Material App](Modules-Material-App)
+* [Toast](Modules-Toast)
 
 ### Components
 
@@ -38,7 +42,3 @@
   * [Text Field Round](Components-Text-Field-Round)
 * [Time Picker](Components-Time-Picker)
 * [User Animation Card](Components-User-Animation-Card)
-
-### Modules
-
-* [Toast](Modules-Toast)
