@@ -4,6 +4,9 @@ KivyMD has the `MDApp` class with the necessary properties. Before 0.102.1 you
 had to create the `theme_cls` property, but with `MDApp` you don't need to do
 this.
 
+> Currently you need to install KivyMD from master branch. See
+> [Installation](https://github.com/HeaTTheatR/KivyMD#how-to-install)
+
 ### Minimal app
 
 Example of minimal app using `MDApp`.
