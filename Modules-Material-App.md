@@ -1,11 +1,8 @@
 ## Material App
 
 KivyMD has the `MDApp` class that creates all required for KivyMD properties. Before
-[0.102.1 *(Unreleased)*](https://github.com/HeaTTheatR/KivyMD/blob/master/CHANGELOG.md) you had
+[0.102.1](https://github.com/HeaTTheatR/KivyMD/blob/master/CHANGELOG.md#v01021---alpha) you had
 to create the `theme_cls` property, but with `MDApp` you don't need to do this.
-
-> Currently you need to install KivyMD from master branch. See
-> [Installation](https://github.com/HeaTTheatR/KivyMD#how-to-install)
 
 ### Minimal app
 
