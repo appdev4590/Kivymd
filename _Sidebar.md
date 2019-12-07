@@ -43,3 +43,9 @@
   * [Text Field Round](Components-Text-Field-Round)
 * [Time Picker](Components-Time-Picker)
 * [User Animation Card](Components-User-Animation-Card)
+
+### Other
+
+* [About](https://github.com/HeaTTheatR/KivyMD#readme)
+* [License](https://github.com/HeaTTheatR/KivyMD/blob/master/LICENSE#L1)
+
