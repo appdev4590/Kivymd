@@ -1,21 +1,20 @@
 ![banner.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/ezgif-5-8eaea5b6cec4.gif)
 
-## Example of using MDCard with Expansion:
+## Example of using MDExpansionPanel with MDCard:
 
 ```python
-from kivy.uix.boxlayout import BoxLayout
-
-from kivymd.app import MDApp
 from kivy.lang import Builder
+from kivy.uix.boxlayout import BoxLayout
+from kivymd.app import MDApp
 
-KV = """
+root_kv = """
 #:import Content __main__.Content
 #:import get_hex_from_color kivy.utils.get_hex_from_color
 #:import Animation kivy.animation.Animation
 
 
-<Content>
-    orientation: 'vertical'
+<Content>:
+    orientation: "vertical"
     padding: dp(10)
     spacing: dp(10)
     size_hint_y: None
@@ -28,7 +27,7 @@ KV = """
             % get_hex_from_color(app.theme_cls.primary_color)
 
         IconLeftWidget:
-            icon: 'phone'
+            icon: "phone"
 
     TwoLineIconListItem:
         text: "kivydevelopment@gmail.com"
@@ -37,7 +36,7 @@ KV = """
             % get_hex_from_color(app.theme_cls.primary_color)
 
         IconLeftWidget:
-            icon: 'email'
+            icon: "email"
 
 
 Screen:
@@ -69,11 +68,16 @@ class Content(BoxLayout):
     pass
 
 
-class Test(MDApp):
-    def build(self):
+class MainApp(MDApp):
+    def __init__(self, **kwargs):
+        self.title = "KivyMD Examples - Expansion Panel with Card"
         self.theme_cls.primary_palette = "Teal"
-        return Builder.load_string(KV)
+        super().__init__(**kwargs)
+
+    def build(self):
+        self.root = Builder.load_string(root_kv)
 
 
-Test().run()
+if __name__ == "__main__":
+    MainApp().run()
 ```

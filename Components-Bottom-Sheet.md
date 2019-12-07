@@ -3,11 +3,10 @@
 ## Example of using MDBottomSheet:
 
 ```python
-from kivy.app import App
-from kivy.factory import Factory
 from kivy.lang import Builder
+from kivy.factory import Factory
 from kivy.uix.boxlayout import BoxLayout
-
+from kivymd.app import MDApp
 from kivymd.theming import ThemeManager
 from kivymd.toast import toast
 from kivymd.uix.bottomsheet import (
@@ -17,19 +16,19 @@ from kivymd.uix.bottomsheet import (
 )
 
 Builder.load_string(
-    '''
+    """
 #:import Window kivy.core.window.Window
 #:import get_hex_from_color kivy.utils.get_hex_from_color
 
 
 <ContentForPopupScreen@BoxLayout>
     id: box
-    orientation: 'vertical'
+    orientation: "vertical"
     padding: dp(10)
     spacing: dp(10)
     size_hint_y: None
     height: self.minimum_height
-    pos_hint: {'top': 1}
+    pos_hint: {"top": 1}
 
     BoxLayout:
         size_hint_y: None
@@ -58,7 +57,7 @@ Builder.load_string(
         on_press: app.callback_for_menu_items(self.text)
 
         IconLeftWidget:
-            icon: 'camera-front-variant'
+            icon: "camera-front-variant"
 
     TwoLineIconListItem:
         text: "Call Viber Out"
@@ -68,7 +67,7 @@ Builder.load_string(
             % get_hex_from_color([0, 0, 0, .5])
 
         IconLeftWidget:
-            icon: 'phone'
+            icon: "phone"
 
     TwoLineIconListItem:
         text: "Call over mobile network"
@@ -78,16 +77,16 @@ Builder.load_string(
             % get_hex_from_color([0, 0, 0, .5])
 
         IconLeftWidget:
-            icon: 'remote'
+            icon: "remote"
 
 
 <BoxContentForBottomSheetCustomScreenList>
-    orientation: 'vertical'
+    orientation: "vertical"
     padding: dp(10)
     spacing: dp(10)
     size_hint_y: None
     height: self.minimum_height
-    pos_hint: {'top': 1}
+    pos_hint: {"top": 1}
 
     ScrollView:
 
@@ -106,7 +105,7 @@ Builder.load_string(
         % get_hex_from_color([0, 0, 0, .5])
 
     IconLeftWidget:
-        icon: 'remote'
+        icon: "remote"
 
 
 <CustomItemButton@AnchorLayout>
@@ -122,93 +121,93 @@ Builder.load_string(
 
 
 <BottomSheet@Screen>
-    name: 'bottom sheet'
+    name: "bottom sheet"
 
     BoxLayout:
-        orientation: 'vertical'
+        orientation: "vertical"
         spacing: dp(10)
-    
+
         MDToolbar:
-            title: 'Example BottomSheet'
+            title: "Example BottomSheet"
             md_bg_color: app.theme_cls.primary_color
-            left_action_items: [['menu', lambda x: x]]
-            background_palette: 'Primary'
+            left_action_items: [["menu", lambda x: x]]
+            background_palette: "Primary"
 
         ScrollView:
-    
+
             GridLayout:
                 size_hint_y: None
                 height: self.minimum_height
                 spacing: "20dp"
                 padding: "20dp"
                 cols: 1
-    
+
                 CustomItemButton:
                     text: "Open custom bottom sheet"
                     callback: lambda: app.show_example_custom_bottom_sheet("custom")
-    
+
                 CustomItemButton:
                     text: "Open custom bottom sheet with list"
                     callback: lambda: app.show_example_custom_bottom_sheet("list")
-            
+
                 CustomItemButton:
                     text: "Open list bottom sheet"
                     callback: lambda: app.show_example_bottom_sheet()
-    
+
                 CustomItemButton:
                     text: "Open grid bottom sheet"
                     callback: lambda: app.show_example_grid_bottom_sheet()
-    
+
                 Widget:
                     size_hint_y: None
                     height: "5dp"
-    
+
                 MDLabel:
                     text: "MDBottomSheet corners"
                     halign: "center"
                     font_style: "H6"
-                
+
                 MDSeparator:
-    
+
                 CustomItemButton:
                     text: "Corner 'top_left'"
                     callback: lambda: app.show_example_custom_bottom_sheet("custom", "top_left")
-    
+
                 CustomItemButton:
                     text: "Corner 'top_right'"
                     callback: lambda: app.show_example_custom_bottom_sheet("custom", "top_right")
-    
+
                 CustomItemButton:
                     text: "Corners 'top'"
                     callback: lambda: app.show_example_custom_bottom_sheet("custom", "top")
-    
+
                 CustomItemButton:
                     text: "Corner 'bottom_left'"
                     callback: lambda: app.show_example_custom_bottom_sheet("custom", "bottom_left")
-    
+
                 CustomItemButton:
                     text: "Corner 'bottom_right'"
                     callback: lambda: app.show_example_custom_bottom_sheet("custom", "bottom_right")
-    
+
                 CustomItemButton:
                     text: "Corners 'bottom'"
                     callback: lambda: app.show_example_custom_bottom_sheet("custom", "bottom")
-    
+
                 Widget:
                     size_hint_y: None
                     height: "5dp"
-    
+
                 MDLabel:
                     text: "MDBottomSheet without animation opening"
                     halign: "center"
                     font_style: "H6"
-                
+
                 MDSeparator:
-    
+
                 CustomItemButton:
                     text: "MDBottomSheet without animation opening"
                     callback: lambda: app.show_example_custom_bottom_sheet("custom", None, False)
-'''
+"""
 )
 
 
@@ -217,31 +216,29 @@ class BoxContentForBottomSheetCustomScreenList(BoxLayout):
         super().__init__(**kwargs)
 
         for i in range(10):
-            self.ids.box.add_widget(
-                Factory.ContentForBottomSheetCustomScreenList()
-            )
+            self.ids.box.add_widget(Factory.ContentForBottomSheetCustomScreenList())
 
 
-class Example(App):
-    theme_cls = ThemeManager()
+class MainApp(MDApp):
+    def __init__(self, **kwargs):
+        self.title = "KivyMD Examples - Bottom Sheet"
+        super().__init__(**kwargs)
 
     def build(self):
-        return Factory.BottomSheet()
+        self.root = Factory.BottomSheet()
 
     def callback_for_menu_items(self, *args):
         toast(args[0])
 
     def show_example_custom_bottom_sheet(
-        self, type, corner=None, animation=True
+        self, screen_type, corner=None, animation=True
     ):
         """Show menu from the screen BottomSheet."""
 
-        if type == "custom":
+        if screen_type == "custom":
             custom_screen_for_bottom_sheet = Factory.ContentForPopupScreen()
-        elif type == "list":
-            custom_screen_for_bottom_sheet = (
-                BoxContentForBottomSheetCustomScreenList()
-            )
+        else:
+            custom_screen_for_bottom_sheet = BoxContentForBottomSheetCustomScreenList()
 
         MDCustomBottomSheet(
             screen=custom_screen_for_bottom_sheet,
@@ -254,15 +251,11 @@ class Example(App):
         bs_menu = MDListBottomSheet()
         bs_menu.add_item(
             "Here's an item with text only",
-            lambda x: self.callback_for_menu_items(
-                "Here's an item with text only"
-            ),
+            lambda x: self.callback_for_menu_items("Here's an item with text only"),
         )
         bs_menu.add_item(
             "Here's an item with an icon",
-            lambda x: self.callback_for_menu_items(
-                "Here's an item with an icon"
-            ),
+            lambda x: self.callback_for_menu_items("Here's an item with an icon"),
             icon="clipboard-account",
         )
         bs_menu.add_item(
@@ -302,5 +295,6 @@ class Example(App):
         bs_menu.open()
 
 
-Example().run()
+if __name__ == "__main__":
+    MainApp().run()
 ```

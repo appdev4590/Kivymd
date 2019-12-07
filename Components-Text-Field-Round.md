@@ -3,13 +3,12 @@
 ## Example of using MDTextFieldRound:
 
 ```python
-from kivy.app import App
 from kivy.lang import Builder
 from kivy.factory import Factory
+from kivymd.app import MDApp
 
-from kivymd.theming import ThemeManager
-
-Builder.load_string('''
+Builder.load_string(
+    """
 #:set color_shadow [0, 0, 0, .2980392156862745]
 #:set color_lilac [.07058823529411765, .07058823529411765, .14901960784313725, .8]
 
@@ -18,7 +17,7 @@ Builder.load_string('''
     size_hint_x: None
     normal_color: color_shadow
     active_color: color_shadow
-    pos_hint: {'center_x': .5}
+    pos_hint: {"center_x": .5}
 
 
 <Example@Screen>
@@ -30,54 +29,57 @@ Builder.load_string('''
             size: self.size
 
     BoxLayout:
-        orientation: 'vertical'
+        orientation: "vertical"
         size_hint_y: None
         height: self.minimum_height
         spacing: dp(15)
-        pos_hint: {'center_x': .5, 'center_y': .5}
+        pos_hint: {"center_x": .5, "center_y": .5}
 
         MyMDTextFieldRound:
-            icon_type: 'without'
-            hint_text: 'Field with `normal_color`'
+            icon_type: "without"
+            hint_text: "Field with `normal_color`"
             normal_color: [0, 0, 0, .1]
 
         MyMDTextFieldRound:
-            icon_type: 'without'
-            hint_text: 'Field without icon'
+            icon_type: "without"
+            hint_text: "Field without icon"
 
         MyMDTextFieldRound:
-            icon_type: 'without'
-            hint_text: 'Field with `require_text_error`'
-            require_text_error: 'Field must be not empty!'
+            icon_type: "without"
+            hint_text: "Field with `require_text_error`"
+            require_text_error: "Field must be not empty!"
 
         MyMDTextFieldRound:
-            icon_left: 'email'
-            icon_type: 'left'
-            hint_text: 'Field with left icon'
-            
+            icon_left: "email"
+            icon_type: "left"
+            hint_text: "Field with left icon"
+
         MyMDTextFieldRound:
-            icon_left: 'email'
-            icon_right: 'account-box'
+            icon_left: "email"
+            icon_right: "account-box"
             icon_right_dasabled: True
-            hint_text: 'Field with left and right disabled icons'
+            hint_text: "Field with left and right disabled icons"
 
         MyMDTextFieldRound:
-            icon_type: 'all'
-            icon_left: 'key-variant'
-            icon_right: 'eye-off'
+            icon_type: "all"
+            icon_left: "key-variant"
+            icon_right: "eye-off"
             icon_right_dasabled: False
             icon_callback: app.show_password
             password: True
-            hint_text: 'Field width type `password = True`'
-''')
+            hint_text: "Field width type `password = True`"
+"""
+)
 
 
-class Example(App):
-    theme_cls = ThemeManager()
-    theme_cls.primary_palette = 'BlueGray'
+class MainApp(MDApp):
+    def __init__(self, **kwargs):
+        self.title = "KivyMD Examples - Round Text Field"
+        self.theme_cls.primary_palette = "BlueGray"
+        super().__init__(**kwargs)
 
     def build(self):
-        return Factory.Example()
+        self.root = Factory.Example()
 
     def show_password(self, field, button):
         """
@@ -93,11 +95,11 @@ class Example(App):
         # and set icon of right button.
         field.password = not field.password
         field.focus = True
-        button.icon = 'eye' if button.icon == 'eye-off' else 'eye-off'
+        button.icon = "eye" if button.icon == "eye-off" else "eye-off"
 
 
-if __name__ == '__main__':
-    Example().run()
+if __name__ == "__main__":
+    MainApp().run()
 ```
 
 ## Parameters:

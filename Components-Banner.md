@@ -1,14 +1,14 @@
 ![banner.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/banner.gif)
 
-## Example of using MDBottomAppBar:
+## Example of using MDBanner:
 
 ```python
 from kivy.lang import Builder
 from kivy.factory import Factory
-
 from kivymd.app import MDApp
 
-Builder.load_string("""
+Builder.load_string(
+    """
 <ExampleBanner@Screen>
 
     MDBanner:
@@ -17,11 +17,11 @@ Builder.load_string("""
 
     MDToolbar:
         id: toolbar
-        title: "Example Banners"
+        title: app.title
         md_bg_color: app.theme_cls.primary_color
         elevation: 10
-        left_action_items: [['dots-vertical', lambda x: None]]
-        pos_hint: {'top': 1}
+        left_action_items: [["dots-vertical", lambda x: None]]
+        pos_hint: {"top": 1}
 
     ScrollView:
         id: scroll
@@ -125,17 +125,20 @@ Builder.load_string("""
                     banner.left_action = []
                     banner.right_action = ["CLOSE", lambda x: banner.hide()]
                     banner.show()
-""")
+"""
+)
 
 
-class Test(MDApp):
+class MainApp(MDApp):
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        self.title = "KivyMD Examples - Banner"
         self.theme_cls.primary_palette = "DeepPurple"
+        super().__init__(**kwargs)
 
     def build(self):
-        return Factory.ExampleBanner()
+        self.root = Factory.ExampleBanner()
 
 
-Test().run()
+if __name__ == "__main__":
+    MainApp().run()
 ```

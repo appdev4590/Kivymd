@@ -1,31 +1,29 @@
 ![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/list-item-with-checkbox.gif)
 
-## Example of using OneLineAvatarIconListItem with Checkbox:
+## Example of using OneLineAvatarIconListItem with MDCheckbox:
 
 ```python
-from kivy.app import App
 from kivy.lang import Builder
 from kivy.factory import Factory
 from kivy.uix.image import Image
-
-from kivymd.theming import ThemeManager
+from kivymd.app import MDApp
 from kivymd.uix.list import IRightBodyTouch, ILeftBody
 from kivymd.uix.selectioncontrol import MDCheckbox
 
 Builder.load_string(
-'''
+    """
 <ListItemWithCheckbox@OneLineAvatarIconListItem>:
     MyAvatar:
-        source: 'data/logo/kivy-icon-128.png'
+        source: "data/logo/kivy-icon-128.png"
     MyCheckbox:
 
 
 <Lists@BoxLayout>
-    name: 'lists'
-    orientation: 'vertical'
+    name: "lists"
+    orientation: "vertical"
 
     MDToolbar:
-        title:'List item with Checkbox'
+        title:"List item with Checkbox"
         md_bg_color: app.theme_cls.primary_color
         elevation: 10
 
@@ -33,7 +31,8 @@ Builder.load_string(
 
         MDList:
             id: scroll
-''')
+"""
+)
 
 
 class MyCheckbox(IRightBodyTouch, MDCheckbox):
@@ -44,18 +43,19 @@ class MyAvatar(ILeftBody, Image):
     pass
 
 
-class Example(App):
-    theme_cls = ThemeManager()
-    theme_cls.primary_palette = 'Teal'
+class MainApp(MDApp):
+    def __init__(self, **kwargs):
+        self.title = "Kivymd Examples - MDList with Checkboxes"
+        self.theme_cls.primary_palette = "Teal"
+        super().__init__(**kwargs)
 
     def build(self):
         list = Factory.Lists()
         for i in range(30):
-            list.ids.scroll.add_widget(
-                Factory.ListItemWithCheckbox(text='Item %d' % i))
-        return list
+            list.ids.scroll.add_widget(Factory.ListItemWithCheckbox(text="Item %d" % i))
+        self.root = list
 
 
 if __name__ == "__main__":
-    Example().run()
+    MainApp().run()
 ```

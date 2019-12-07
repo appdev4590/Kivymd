@@ -3,66 +3,65 @@
 ## Example of using MDTabs:
 
 ```python
-from kivy.app import App
 from kivy.lang import Builder
+from kivy.factory import Factory
+from kivy.properties import ListProperty
 from kivy.uix.boxlayout import BoxLayout
-
+from kivymd.app import MDApp
 from kivymd.icon_definitions import md_icons
-from kivymd.uix.tabs import MDTabsBase
-from kivymd.theming import ThemeManager
+from kivymd.uix.tab import MDTabsBase
 
-demo = """
-<Example@BoxLayout>
-    orientation: 'vertical'
+kv = """
+<Example@BoxLayout>:
+    orientation: "vertical"
 
     MDToolbar:
         title: app.title
         md_bg_color: app.theme_cls.primary_color
-        background_palette: 'Primary'
-        left_action_items: [['menu', lambda x: x]]
+        background_palette: "Primary"
+        left_action_items: [["menu", lambda x: x]]
 
     MDTabs:
         id: android_tabs
 
 
-<MyTab>
+<MyTab>:
 
     FloatLayout:
 
         MDLabel:
-            text: 'Content'
-            halign: 'center'
-            theme_text_color: 'Primary'
-            font_style: 'H6'
+            text: "Content"
+            halign: "center"
+            theme_text_color: "Primary"
+            font_style: "H6"
 
 
 """
 
-if __name__ == '__main__':
-    from kivy.factory import Factory
-    from kivymd.button import MDIconButton
+
+class MyTab(BoxLayout, MDTabsBase):
+    pass
 
 
-    class MyTab(BoxLayout, MDTabsBase):
-        pass
+class MainApp(MDApp):
+    list_name_icons = ListProperty(list(md_icons.keys())[0:15])
+
+    def __init__(self, **kwargs):
+        self.title = "KivyMD Examples - Tabs"
+        super().__init__(**kwargs)
+
+    def build(self):
+        Builder.load_string(kv)
+        screen = Factory.Example()
+
+        for name_tab in self.list_name_icons:
+            tab = MyTab(text=name_tab)
+            screen.ids.android_tabs.add_widget(tab)
+        self.root = screen
 
 
-    class Example(App):
-        title = 'Example Tabs'
-        theme_cls = ThemeManager()
-        list_name_icons = list(md_icons.keys())[0:15]
-
-        def build(self):
-            Builder.load_string(demo)
-            screen = Factory.Example()
-
-            for name_tab in self.list_name_icons:
-                tab = MyTab(text=name_tab)
-                screen.ids.android_tabs.add_widget(tab)
-            return screen
-
-
-    Example().run()
+if __name__ == "__main__":
+    MainApp().run()
 ```
 
 If you want to use text instead of icons in tabs, simply assign a text value to the **text** parameter in **MDTab**, which is not in the **md_icon** dictionary:
@@ -73,7 +72,7 @@ If you want to use text instead of icons in tabs, simply assign a text value to 
             ...
 
             for name_tab in self.list_name_icons:
-                tab = MyTab(text=' '.join(name_tab.split('-')).capitalize())
+                tab = MyTab(text=" ".join(name_tab.split("-")).capitalize())
                 screen.ids.android_tabs.add_widget(tab)
 ```
 

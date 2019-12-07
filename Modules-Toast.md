@@ -3,41 +3,43 @@
 ## Example of using Kivy Toast:
 
 ```python
-from kivy.app import App
-from kivymd.theming import ThemeManager
+from kivy.lang import Builder
+from kivymd.app import MDApp
 from kivymd.toast.kivytoast.kivytoast import toast
 
-
-class Test(App):
-    theme_cls = ThemeManager()
-
-    def show_toast(self):
-        toast('Test Kivy Toast')
-        # toast('Test Kivy Toast', duration=3)  # toast with user duration
-
-    def build(self):
-        return Builder.load_string(
-            '''
+kv = """
 BoxLayout:
-    orientation:'vertical'
+    orientation: "vertical"
 
     MDToolbar:
         id: toolbar
-        title: 'Test Toast'
+        title: app.title
         md_bg_color: app.theme_cls.primary_color
-        left_action_items: [['menu', lambda x: '']]
+        left_action_items: [["menu", lambda x: None]]
 
     FloatLayout:
 
         MDRaisedButton:
-            text: 'TEST KIVY TOAST'
+            text: "TEST KIVY TOAST"
             on_release: app.show_toast()
-            pos_hint: {'center_x': .5, 'center_y': .5}
+            pos_hint: {"center_x": .5, "center_y": .5}
 
-'''
-        )
+"""
+
+
+class MainApp(MDApp):
+    def __init__(self, **kwargs):
+        self.title = "KivyMD Examples - Toast"
+        super().__init__(**kwargs)
+
+    def build(self):
+        self.root = Builder.load_string(kv)
+
+    def show_toast(self):
+        toast("Test Kivy Toast")
+        # toast("Test Kivy Toast", duration=3)  # toast with user duration
 
 
 if __name__ == "__main__":
-    Test().run()
+    MainApp().run()
 ```

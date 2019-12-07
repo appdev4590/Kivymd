@@ -3,27 +3,26 @@
 ## Example of using a class MDFileManager:
 
 ```python
-from kivy.app import App
-from kivy.core.window import Window
 from kivy.lang import Builder
 from kivy.factory import Factory
+from kivy.core.window import Window
+from kivy.properties import BooleanProperty, ObjectProperty
 from kivy.uix.modalview import ModalView
-
-from kivymd.uix.filemanager import MDFileManager
-from kivymd.theming import ThemeManager
+from kivymd.app import MDApp
 from kivymd.toast import toast
+from kivymd.uix.filemanager import MDFileManager
 
 
 Builder.load_string(
-'''
+    """
 <ExampleFileManager@BoxLayout>:
-    orientation: 'vertical'
+    orientation: "vertical"
     spacing: dp(5)
 
     MDToolbar:
         id: toolbar
         title: app.title
-        left_action_items: [['menu', lambda x: None]]
+        left_action_items: [["menu", lambda x: None]]
         elevation: 10
         md_bg_color: app.theme_cls.primary_color
 
@@ -33,32 +32,34 @@ Builder.load_string(
         MDRoundFlatIconButton:
             text: "Open manager"
             icon: "folder"
-            pos_hint: {'center_x': .5, 'center_y': .6}
+            pos_hint: {"center_x": .5, "center_y": .6}
             on_release: app.file_manager_open()
-''')
+"""
+)
 
 
-class Example(App):
-    theme_cls = ThemeManager()
-    theme_cls.primary_palette = 'Teal'
-    title = "File Manager"
+class MainApp(MDApp):
+    manager_open = BooleanProperty()
+    manager = ObjectProperty()
+    file_manager = ObjectProperty()
 
     def __init__(self, **kwargs):
-        super(Example, self).__init__(**kwargs)
+        self.title = "KivyMD Examples - File Manager"
+        self.theme_cls.primary_palette = "Teal"
+        super().__init__(**kwargs)
         Window.bind(on_keyboard=self.events)
-        self.manager_open = False
-        self.manager = None
 
     def build(self):
-        return Factory.ExampleFileManager()
+        self.root = Factory.ExampleFileManager()
 
     def file_manager_open(self):
         if not self.manager:
             self.manager = ModalView(size_hint=(1, 1), auto_dismiss=False)
             self.file_manager = MDFileManager(
-                exit_manager=self.exit_manager, select_path=self.select_path)
+                exit_manager=self.exit_manager, select_path=self.select_path
+            )
             self.manager.add_widget(self.file_manager)
-            self.file_manager.show('/')  # output manager to the screen
+            self.file_manager.show("/")  # output manager to the screen
         self.manager_open = True
         self.manager.open()
 
@@ -90,7 +91,7 @@ class Example(App):
 
 
 if __name__ == "__main__":
-    Example().run()
+    MainApp().run()
 ```
 
 ## Example of using a class MDFileManager with previous mode:

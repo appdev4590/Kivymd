@@ -1,14 +1,14 @@
 ![chips.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/tooltips.gif)
 
-## Example of using MDTooltips:
+## Example of using MDTooltip:
 
 ```python
 from kivy.lang import Builder
 from kivy.factory import Factory
-
 from kivymd.app import MDApp
 
-Builder.load_string("""
+Builder.load_string(
+    """
 #:import random random
 #:import hex_colormap kivy.utils.hex_colormap
 #:import get_color_from_hex kivy.utils.get_color_from_hex
@@ -21,13 +21,13 @@ Builder.load_string("""
 
 
 <ExampleTooltips@BoxLayout>
-    orientation: 'vertical'
+    orientation: "vertical"
 
     MDToolbar:
-        title: "Example Tooltips"
+        title: app.title
         md_bg_color: get_color_from_hex(hex_colormap["crimson"])
         elevation: 10
-        left_action_items: [['dots-vertical', lambda x: None]]
+        left_action_items: [["menu", lambda x: None]]
         tooltip_text: "MDToolbar"
 
     Screen:
@@ -37,7 +37,7 @@ Builder.load_string("""
             size: self.minimum_size
             padding: "10dp"
             spacing: "10dp"
-            pos_hint: {'center_x': .5, "center_y": .9}
+            pos_hint: {"center_x": .5, "center_y": .9}
 
             IconButtonTooltips:
                 icon: random.choice(ICONS)
@@ -57,15 +57,21 @@ Builder.load_string("""
             IconButtonTooltips:
                 icon: random.choice(ICONS)
                 tooltip_text: "MDIconButton"
-""")
+"""
+)
 
 
-class Test(MDApp):
+class MainApp(MDApp):
+    def __init__(self, **kwargs):
+        self.title = "KivyMD Example - Tooltip"
+        super().__init__(**kwargs)
+
     def build(self):
-        return Factory.ExampleTooltips()
+        self.root = Factory.ExampleTooltips()
 
 
-Test().run()
+if __name__ == "__main__":
+    MainApp().run()
 ```
 
 ## MDTooltip Behavior on Mobile:

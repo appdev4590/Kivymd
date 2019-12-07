@@ -3,41 +3,40 @@
 ## Example of using MDTimePicker:
 
 ```python
-from kivy.app import App
 from kivy.lang import Builder
 from kivy.factory import Factory
+from kivy.properties import ObjectProperty
+from kivymd.app import MDApp
 
-from kivymd.theming import ThemeManager
 
-
-KV = """
+kv = """
 <Pickers@Screen>
-    name: 'pickers'
+    name: "pickers"
 
     BoxLayout:
-        orientation: 'vertical'
+        orientation: "vertical"
         spacing: dp(20)
-        pos_hint: {'center_x': .5, 'center_y': .5}
+        pos_hint: {"center_x": .5, "center_y": .5}
         size_hint_y: None
         height: self.minimum_height
 
         MDRaisedButton:
             text: "Open time picker"
-            pos_hint: {'center_x': .5}
+            pos_hint: {"center_x": .5}
             on_release: app.show_example_time_picker()
 
         MDLabel:
             id: time_picker_label
-            theme_text_color: 'Primary'
-            halign: 'center'
+            theme_text_color: "Primary"
+            halign: "center"
 
         BoxLayout:
             size_hint: None, None
             size: self.minimum_size
-            pos_hint: {'center_x': .5}
+            pos_hint: {"center_x": .5}
 
             Label:
-                theme_text_color: 'Primary'
+                theme_text_color: "Primary"
                 text: "Start on previous date"
                 size_hint_x: None#, None
                 width: self.texture_size[0]
@@ -50,15 +49,16 @@ KV = """
 """
 
 
-class Example(App):
-    theme_cls = ThemeManager()
-    pickers = None
-    previous_time = ''
+class MainApp(MDApp):
+    previous_time = ObjectProperty()
+
+    def __init__(self, **kwargs):
+        self.title = "KivyMD Examples - Time Picker"
+        super().__init__(**kwargs)
 
     def build(self):
-        Builder.load_string(KV)
-        self.pickers = Factory.Pickers()
-        return self.pickers
+        Builder.load_string(kv)
+        self.root = Factory.Pickers()
 
     def show_example_time_picker(self):
         from kivymd.uix.picker import MDTimePicker
@@ -66,7 +66,7 @@ class Example(App):
         time_dialog = MDTimePicker()
         time_dialog.bind(time=self.get_time_picker_date)
 
-        if self.pickers.ids.time_picker_use_previous_time.active:
+        if self.root.ids.time_picker_use_previous_time.active:
             try:
                 time_dialog.set_time(self.previous_time)
             except AttributeError:
@@ -74,10 +74,10 @@ class Example(App):
         time_dialog.open()
 
     def get_time_picker_date(self, instance, time):
-        self.pickers.ids.time_picker_label.text = str(time)
+        self.root.ids.time_picker_label.text = str(time)
         self.previous_time = time
 
 
 if __name__ == "__main__":
-    Example().run()
+    MainApp().run()
 ```

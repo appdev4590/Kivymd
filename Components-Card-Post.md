@@ -3,24 +3,23 @@
 ## Example of using a class MDCardPost:
 
 ```python
-from kivy.app import App
 from kivy.lang import Builder
 from kivy.factory import Factory
-
-from kivymd.uix.card import MDCardPost
-from kivymd.theming import ThemeManager
+from kivy.properties import BooleanProperty
+from kivymd.app import MDApp
 from kivymd.toast import toast
+from kivymd.uix.card import MDCardPost
 
 
 Builder.load_string("""
 <ExampleCardPost@BoxLayout>:
-    orientation: 'vertical'
+    orientation: "vertical"
     spacing: dp(5)
 
     MDToolbar:
         id: toolbar
         title: app.title
-        left_action_items: [['menu', lambda x: None]]
+        left_action_items: [["menu", lambda x: None]]
         elevation: 10
         md_bg_color: app.theme_cls.primary_color
 
@@ -40,15 +39,16 @@ Builder.load_string("""
 """)
 
 
-class Example(App):
-    theme_cls = ThemeManager()
-    theme_cls.primary_palette = 'Teal'
-    title = "Card Post"
-    cards_created = False
+class MainApp(MDApp):
+    cards_created = BooleanProperty(False)
+
+    def __init__(self, **kwargs):
+        self.title = "KivyMD Examples - Card Post"
+        self.theme_cls.primary_palette = "Teal"
+        super().__init__(**kwargs)
 
     def build(self):
-        self.screen = Factory.ExampleCardPost()
-        return self.screen
+        self.root = Factory.ExampleCardPost()
 
     def on_start(self):
         def callback_for_menu_items(text_item):
@@ -56,20 +56,20 @@ class Example(App):
 
         def callback(instance, value):
             if value and isinstance(value, int):
-                toast('Set like in %d stars' % value)
+                toast(f"Set like in {value} stars")
             elif value and isinstance(value, str):
-                toast('Repost with %s ' % value)
+                toast(f"Repost with {value}")
             elif value and isinstance(value, list):
                 toast(value[1])
             else:
-                toast('Delete post %s' % str(instance))
+                toast(f"Delete post {instance}")
 
-        instance_grid_card = self.screen.ids.grid_card
-        buttons = ['facebook', 'vk', 'twitter']
+        instance_grid_card = self.root.ids.grid_card
+        buttons = ["facebook", "vk", "twitter"]
         menu_items = [
-            {'viewclass': 'MDMenuItem',
-             'text': 'Example item %d' % i,
-             'callback': callback_for_menu_items}
+            {"viewclass": "MDMenuItem",
+             "text": f"Example item {i}",
+             "callback": callback_for_menu_items}
             for i in range(2)
         ]
 
@@ -77,17 +77,17 @@ class Example(App):
             self.cards_created = True
 
             instance_grid_card.add_widget(
-                MDCardPost(text_post='Card with text',
+                MDCardPost(text_post="Card with text",
                            swipe=True, callback=callback))
             instance_grid_card.add_widget(
                 MDCardPost(
                     right_menu=menu_items, swipe=True,
-                    text_post='Card with a button to open the menu MDDropDown',
+                    text_post="Card with a button to open the menu MDDropDown",
                     callback=callback))
             instance_grid_card.add_widget(
                 MDCardPost(
                     likes_stars=True, callback=callback, swipe=True,
-                    text_post='Card with asterisks for voting.'))
+                    text_post="Card with asterisks for voting."))
 
             instance_grid_card.add_widget(
                 MDCardPost(
@@ -102,5 +102,5 @@ class Example(App):
 
 
 if __name__ == "__main__":
-    Example().run()
+    MainApp().run()
 ```

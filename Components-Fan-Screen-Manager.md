@@ -6,29 +6,28 @@
 ## Example of using MDFanScreenManager:
 
 ```python
-from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
-
+from kivymd.app import MDApp
 from kivymd.uix.button import MDIconButton
 from kivymd.uix.fanscreenmanager import MDFanScreen
 from kivymd.uix.list import ILeftBodyTouch
-from kivymd.theming import ThemeManager
 
 
-Builder.load_string("""
+Builder.load_string(
+    """
 #:import get_hex_from_color kivy.utils.get_hex_from_color
 
 
 <TestFanScreenManager>:
-    orientation: 'vertical'
+    orientation: "vertical"
 
     MDToolbar:
         id: toolbar
-        title: 'Screen Tree'
+        title: "Screen Tree"
         md_bg_color: app.theme_cls.primary_color
-        left_action_items: [['menu', lambda x: fan_screen_manager.open_fan()]]
-        background_palette: 'Primary'
+        left_action_items: [["menu", lambda x: fan_screen_manager.open_fan()]]
+        background_palette: "Primary"
 
     MDFanScreenManager:
         id: fan_screen_manager
@@ -41,7 +40,7 @@ Builder.load_string("""
                 size: self.size
 
         ScreenOne:
-            name: 'Screen One'
+            name: "Screen One"
             on_enter: toolbar.title = self.name
 
             canvas.before:
@@ -52,11 +51,11 @@ Builder.load_string("""
                     size: self.size
 
         ScreenTwo:
-            name: 'Screen Two'
+            name: "Screen Two"
             on_enter: toolbar.title = self.name
 
         ScreenTree:
-            name: 'Screen Tree'
+            name: "Screen Tree"
             on_enter: toolbar.title = self.name
 
             canvas.before:
@@ -73,26 +72,26 @@ Builder.load_string("""
 ###############################################################################
 
 <ScreenTwo>:
-    orientation: 'vertical'
+    orientation: "vertical"
     spacing: dp(10)
 
     canvas:
         Rectangle:
             pos: self.pos
             size: self.size
-            source: 'demos/kitchen_sink/assets/crop-blur.jpg'
+            source: "demos/kitchen_sink/assets/crop-blur.jpg"
 
     Image:
-        source: 'demos/kitchen_sink/assets/twitter-red.png'
+        source: "demos/kitchen_sink/assets/twitter-red.png"
         size_hint: None, None
         size: dp(60), dp(60)
-        pos_hint: {'center_x': .5}
+        pos_hint: {"center_x": .5}
 
     Label:
-        text: 'Registration'
+        text: "Registration"
         size_hint_y: None
         height: self.texture_size[1]
-        font_size: '20sp'
+        font_size: "20sp"
         bold: True
 
     Widget:
@@ -102,39 +101,39 @@ Builder.load_string("""
     MDTextFieldRect:
         size_hint: None, None
         size: root.width - dp(40), dp(30)
-        pos_hint: {'center_x': .5}
+        pos_hint: {"center_x": .5}
 
     MDTextFieldRect:
         size_hint: None, None
         size: root.width - dp(40), dp(30)
-        pos_hint: {'center_x': .5}
+        pos_hint: {"center_x": .5}
 
     Widget:
         size_hint_y: None
         height: dp(20)
 
     Label:
-        text: 'Enter your Login and Password'
+        text: "Enter your Login and Password"
         size_hint_y: None
         height: self.texture_size[1]
 
     AnchorLayout:
-        anchor_y: 'bottom'
+        anchor_y: "bottom"
         padding: dp(10)
 
         MDRoundFlatButton:
             text: "Registration"
-            pos_hint: {'center_x': .5}
+            pos_hint: {"center_x": .5}
 
 
 <ScreenOne>:
-    orientation: 'vertical'
+    orientation: "vertical"
     padding: dp(10)
     spacing: dp(10)
 
     Image:
         size_hint_y: None
-        source: 'data/logo/kivy-icon-512.png'
+        source: "data/logo/kivy-icon-512.png"
 
     BoxLayout:
         size_hint_y: None
@@ -151,7 +150,7 @@ Builder.load_string("""
     OneLineIconListItem:
         text: "Video call"
         IconLeftSampleWidget:
-            icon: 'camera-front-variant'
+            icon: "camera-front-variant"
 
     TwoLineIconListItem:
         text: "Call Viber Out"
@@ -159,7 +158,7 @@ Builder.load_string("""
             "[color=%s]Advantageous rates for calls[/color]" \
             % get_hex_from_color(app.theme_cls.primary_color)
         IconLeftSampleWidget:
-            icon: 'phone'
+            icon: "phone"
 
     TwoLineIconListItem:
         text: "Call over mobile network"
@@ -167,10 +166,11 @@ Builder.load_string("""
             "[color=%s]Operator's tariffs apply[/color]" \
             % get_hex_from_color(app.theme_cls.primary_color)
         IconLeftSampleWidget:
-            icon: 'remote'
+            icon: "remote"
 
     Widget:
-""")
+"""
+)
 
 
 class TestFanScreenManager(BoxLayout):
@@ -193,14 +193,16 @@ class IconLeftSampleWidget(ILeftBodyTouch, MDIconButton):
     pass
 
 
-class MyApp(App):
-    theme_cls = ThemeManager()
-    theme_cls.primary_palette = 'Red'
+class MainApp(MDApp):
+    def __init__(self, **kwargs):
+        self.title = "KivyMD Examples - Fan Screen Manager"
+        self.theme_cls.primary_palette = "Red"
+        super().__init__(**kwargs)
 
     def build(self):
-        return TestFanScreenManager()
+        self.root = TestFanScreenManager()
 
 
 if __name__ == "__main__":
-    MyApp().run()
+    MainApp().run()
 ```

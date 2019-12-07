@@ -3,11 +3,9 @@
 ## Example of using MDBottomAppBar:
 
 ```python
-from kivy.factory import Factory
-
-from kivymd.app import MDApp
 from kivy.lang import Builder
-
+from kivy.factory import Factory
+from kivymd.app import MDApp
 
 Builder.load_string(
     """
@@ -37,63 +35,63 @@ Builder.load_string(
 
 
 <BottomAppBar@Screen>
-    name: 'bottom app bar'
+    name: "bottom app bar"
 
     BoxLayout:
         spacing: dp(10)
-        orientation: 'vertical'
+        orientation: "vertical"
 
         MDToolbar:
             title: "Title"
             md_bg_color: app.theme_cls.primary_color
-            left_action_items: [['menu', lambda x: x]]
+            left_action_items: [["menu", lambda x: x]]
 
         ScrollView:
-    
+
             GridLayout:
                 size_hint_y: None
                 height: self.minimum_height
                 cols: 1
                 padding: "10dp"
                 spacing: "10dp"
-    
+
                 MDSeparator:
-        
+
                 StyleLabel:
                     text: "Notch"
-                
+
                 StyleItemCheck:
-                    group: 'notch'
+                    group: "notch"
                     text: "On"
                     active: True
-        
+
                 StyleItemCheck:
-                    group: 'notch'
+                    group: "notch"
                     text: "Off"
-        
+
                 MDSeparator:
-        
+
                 StyleLabel:
                     text: "Position"
-        
+
                 StyleItemCheck:
-                    group: 'pos'
+                    group: "pos"
                     text: "Attached - Center"
                     active: True
-        
+
                 StyleItemCheck:
-                    group: 'pos'
+                    group: "pos"
                     text: "Attached - End"
-    
+
                 StyleItemCheck:
-                    group: 'pos'
+                    group: "pos"
                     text: "Free - Center"
-        
+
                 StyleItemCheck:
-                    group: 'pos'
+                    group: "pos"
                     text: "Free - End"
 
-        MDBottomAppBar
+        MDBottomAppBar:
 
             MDToolbar:
                 id: toolbar
@@ -105,7 +103,14 @@ Builder.load_string(
 )
 
 
-class BottomAppBarTest(MDApp):
+class MainApp(MDApp):
+    def __init__(self, **kwargs):
+        self.title = "KivyMD Examples - Bottom App Bar"
+        super().__init__(**kwargs)
+
+    def build(self):
+        self.root = Factory.BottomAppBar()
+
     def callback(self, text, value):
         if value and self.root:
             if text == "Off":
@@ -121,9 +126,7 @@ class BottomAppBarTest(MDApp):
             elif text == "Free - Center":
                 self.root.ids.toolbar.mode = "free-center"
 
-    def build(self):
-        return Factory.BottomAppBar()
 
-
-BottomAppBarTest().run()
+if __name__ == "__main__":
+    MainApp().run()
 ```

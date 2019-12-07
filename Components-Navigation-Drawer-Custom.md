@@ -3,18 +3,18 @@
 [CustomNavigationDrawer](https://github.com/HeaTTheatR/CustomNavigationDrawer)
 
 ```python
-from kivy.app import App
 from kivy.lang import Builder
 from kivy.animation import Animation
 from kivy.core.window import Window
 from kivy.properties import StringProperty
 from kivy.uix.image import Image
 from kivy.uix.screenmanager import Screen
-
+from kivymd.app import MDApp
 from kivymd.uix.list import ILeftBody, OneLineAvatarListItem
-from kivymd.theming import ThemableBehavior, ThemeManager
+from kivymd.theming import ThemableBehavior
 
-Builder.load_string("""
+Builder.load_string(
+    """
 #:import Window kivy.core.window.Window
 #:import get_hex_from_color kivy.utils.get_hex_from_color
 
@@ -27,7 +27,7 @@ Builder.load_string("""
 <MyLabel@Label>
     size_hint: None, None
     size: self.texture_size
-    pos_hint: {'center_x': .5}
+    pos_hint: {"center_x": .5}
 
 
 <MyBoxLayout@BoxLayout>
@@ -36,7 +36,7 @@ Builder.load_string("""
 
 
 <CustomNavigationDrawerIconButton>
-    theme_text_color: 'Custom'
+    theme_text_color: "Custom"
     text_color: color_grey
     divider: None
 
@@ -46,7 +46,7 @@ Builder.load_string("""
 
 <CustomNavigationDrawer@BoxLayout>
     size_hint: None, None
-    width: '360dp'
+    width: "360dp"
     height: Window.height
     x: Window.width
 
@@ -54,58 +54,58 @@ Builder.load_string("""
         Rectangle:
             size: self.size
             pos: self.pos
-            source: 'data/shadow-profile-items.png'
+            source: "data/shadow-profile-items.png"
 
     BoxLayout:
         id: box_content
-        orientation: 'vertical'
-        width: '320dp'
-        pos_hint: {'right': 1}
-        padding: '60dp', '10dp', '30dp', 0
-        spacing: '30dp'
+        orientation: "vertical"
+        width: "320dp"
+        pos_hint: {"right": 1}
+        padding: "60dp", "10dp", "30dp", 0
+        spacing: "30dp"
 
         MDIconButton:
-            icon: 'close'
-            theme_text_color: 'Custom'
+            icon: "close"
+            theme_text_color: "Custom"
             text_color: color_grey
             on_release: root.parent.hide_navigation_drawer()
 
         MyBoxLayout:
 
             Image:
-                source: 'data/users/user.png'
+                source: "data/users/user.png"
 
             MyLabel:
                 id: label_user_name_mail
                 markup: True
                 text:
-                    f"[color={hex_color_grey}][size=20]HeaTTeatR" \
+                    f"[color={hex_color_grey}][size=20]HeaTTheatR" \
                     f"[/size][/color]\\nkivydevelopment@gmail.com"
                 color: color_grey_dark
-                pos_hint: {'center_y': .5}
+                pos_hint: {"center_y": .5}
 
         MyBoxLayout:
-            spacing: '5dp'
-            padding: '10dp'
+            spacing: "5dp"
+            padding: "10dp"
 
             MyBoxLayout:
-                orientation: 'vertical'
-                spacing: '5dp'
+                orientation: "vertical"
+                spacing: "5dp"
 
                 MyLabel:
                     id: label_plain
                     markup: True
-                    text: 'My Plain'
+                    text: "My Plain"
                     color: color_grey
-                    pos_hint: {'center_y': .5}
+                    pos_hint: {"center_y": .5}
 
                 MyBoxLayout:
-                    spacing: '5dp'
+                    spacing: "5dp"
 
                     Widget:
                         size_hint: None, None
-                        size: '10dp', '10dp'
-                        pos_hint: {'center_y': .5}
+                        size: "10dp", "10dp"
+                        pos_hint: {"center_y": .5}
 
                         canvas.before:
                             Color:
@@ -117,12 +117,12 @@ Builder.load_string("""
                     MyLabel:
                         id: label_basic
                         markup: True
-                        text: 'Basic $5/mo'
+                        text: "Basic $5/mo"
                         color: color_grey_dark
 
             MDRoundFlatButton:
-                text: 'Upgrade'
-                pos_hint: {'right': 1}
+                text: "Upgrade"
+                pos_hint: {"right": 1}
 
         ScrollView:
 
@@ -134,26 +134,27 @@ Builder.load_string("""
 
 
 <RootScreen>
-    name: 'custom navigation drawer'
+    name: "custom navigation drawer"
     on_kv_post: root.set_navigation_drawer_icons()
 
     FloatLayout:
 
         BoxLayout:
-            orientation: 'vertical'
+            orientation: "vertical"
 
             MDToolbar:
                 title: app.title
                 md_bg_color: app.theme_cls.primary_color
                 elevation: 10
                 left_action_items:
-                    [['menu', lambda x: root.show_navigation_drawer()]]
+                    [["menu", lambda x: root.show_navigation_drawer()]]
 
             Widget:
 
     CustomNavigationDrawer:
         id: navigation_drawer
-""")
+"""
+)
 
 
 class AvatarSampleWidget(ILeftBody, Image):
@@ -186,23 +187,21 @@ class RootScreen(ThemableBehavior, Screen):
         }.items():
             self.ids.navigation_drawer.ids.box_item.add_widget(
                 CustomNavigationDrawerIconButton(
-                    text=items[1],
-                    source=f"data/profile/{items[0]}.png",
+                    text=items[1], source=f"data/profile/{items[0]}.png",
                 )
             )
 
 
-class TestCustomNavigationDrawer(App):
-    theme_cls = ThemeManager()
-    theme_cls.primary_palette = "Indigo"
-    root_screen = None
-    title = "Test CustomNavigationDrawer"
+class MainApp(MDApp):
+    def __init__(self, **kwargs):
+        self.title = "KivyMD Examples - Custom Navigation Drawer"
+        self.theme_cls.primary_palette = "Indigo"
+        super().__init__(**kwargs)
 
     def build(self):
-        self.root_screen = RootScreen()
-        return self.root_screen
+        self.root = RootScreen()
 
 
 if __name__ == "__main__":
-    TestCustomNavigationDrawer().run()
+    MainApp().run()
 ```

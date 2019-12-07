@@ -1,30 +1,29 @@
 ![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/textfield_cleartype.gif)
 
-## Example of using TextFields:
+## Example of using MDTextField:
 
 ```python
-from kivy.app import App
 from kivy.lang import Builder
 from kivy.factory import Factory
+from kivymd.app import MDApp
 
-from kivymd.theming import ThemeManager
-
-Builder.load_string("""
+Builder.load_string(
+    """
 <ExampleTextFields@BoxLayout>:
-    orientation: 'vertical'
+    orientation: "vertical"
 
-    Toolbar:
+    MDToolbar:
         id: toolbar
         title: app.title
         md_bg_color: app.theme_cls.primary_color
-        background_palette: 'Primary'
+        background_palette: "Primary"
         elevation: 10
-        left_action_items: [['dots-vertical', lambda x: None]]
+        left_action_items: [["menu", lambda x: None]]
 
     ScrollView:
 
         BoxLayout:
-            orientation: 'vertical'
+            orientation: "vertical"
             size_hint_y: None
             height: self.minimum_height
             padding: dp(48)
@@ -67,11 +66,11 @@ Builder.load_string("""
 
             MDTextField:
                 hint_text: "color_mode = \'accent\'"
-                color_mode: 'accent'
+                color_mode: "accent"
 
             MDTextField:
                 hint_text: "color_mode = \'custom\'"
-                color_mode: 'custom'
+                color_mode: "custom"
                 helper_text_mode: "on_focus"
                 helper_text:
                     "Color is defined by \'line_color_focus\' property"
@@ -85,19 +84,20 @@ Builder.load_string("""
 
             MDTextFieldClear:
                 hint_text: "Text field with clearing type"
-""")
+"""
+)
 
 
-class Example(App):
-    theme_cls = ThemeManager()
-    theme_cls.primary_palette = 'Blue'
-    title = "Example Text Fields"
-    main_widget = None
+class MainApp(MDApp):
+    def __init__(self, **kwargs):
+        self.title = "KivyMD Examples - Text Fields"
+        self.theme_cls.primary_palette = "Blue"
+        super().__init__(**kwargs)
 
     def build(self):
-        return Factory.ExampleTextFields()
+        self.root = Factory.ExampleTextFields()
 
 
 if __name__ == "__main__":
-    Example().run()
+    MainApp().run()
 ```

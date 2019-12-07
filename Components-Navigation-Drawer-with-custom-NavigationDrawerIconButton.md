@@ -1,18 +1,19 @@
 ![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/custom-navigation-drawer-icon-button.gif)
 
 ```python
-from kivy.app import App
 from kivy.lang import Builder
 from kivy.properties import StringProperty
 from kivy.uix.image import Image
-
-from kivymd.uix.list import ILeftBody, OneLineAvatarListItem
-from kivymd.theming import ThemeManager
+from kivymd.app import MDApp
 from kivymd.toast import toast
+from kivymd.uix.list import ILeftBody, OneLineAvatarListItem
 
-main_kv = """
+root_kv = """
+#:import NavigationLayout kivymd.uix.navigationdrawer.NavigationLayout
+
+
 <ContentNavigationDrawer@MDNavigationDrawer>
-    drawer_logo: 'demos/kitchen_sink/assets/drawer_logo.png'
+    drawer_logo: "demos/kitchen_sink/assets/drawer_logo.png"
 
     NavigationDrawerSubheader:
         text: "Menu:"
@@ -31,19 +32,21 @@ NavigationLayout:
         id: nav_drawer
 
     BoxLayout:
-        orientation: 'vertical'
+        orientation: "vertical"
 
         MDToolbar:
             id: toolbar
-            title: 'KivyMD Kitchen Sink'
+            title: app.title
             md_bg_color: app.theme_cls.primary_color
-            background_palette: 'Primary'
-            background_hue: '500'
+            background_palette: "Primary"
+            background_hue: "500"
             elevation: 10
             left_action_items:
-                [['dots-vertical', lambda x: app.root.toggle_nav_drawer()]]
+                [["menu", lambda x: app.root.toggle_nav_drawer()]]
 
-        Widget:
+        BoxLayout:
+            id: content
+            orientation: "vertical"
 """
 
 
@@ -58,30 +61,29 @@ class CustomNavigationDrawerIconButton(OneLineAvatarListItem):
         pass
 
 
-class Example(App):
-    theme_cls = ThemeManager()
-    theme_cls.primary_palette = 'Teal'
-    title = "Navigation Drawer"
-    main_widget = None
+class MainApp(MDApp):
+    def __init__(self, **kwargs):
+        self.title = "KivyMD Examples - Navigation Drawer with Custom Buttons"
+        self.theme_cls.primary_palette = "Teal"
+        super().__init__(**kwargs)
 
     def build(self):
-        self.main_widget = Builder.load_string(main_kv)
-        return self.main_widget
+        self.root = Builder.load_string(root_kv)
+
+    def on_start(self):
+        for i in range(15):
+            self.root.ids.nav_drawer.add_widget(
+                CustomNavigationDrawerIconButton(
+                    text=f"Item {i}",
+                    source="data/logo/kivy-icon-128.png",
+                    on_press=lambda x, y=i: self.callback(x, y),
+                )
+            )
 
     def callback(self, instance, value):
         toast("Pressed item menu %d" % value)
 
-    def on_start(self):
-        for i in range(15):
-            self.main_widget.ids.nav_drawer.add_widget(
-                CustomNavigationDrawerIconButton(
-                    text=f"Item {i}",
-                    source="data/logo/kivy-icon-128.png",
-                    on_press=lambda x, y=i: self.callback(x, y)
-                )
-            )
-
 
 if __name__ == "__main__":
-    Example().run()
+    MainApp().run()
 ```
