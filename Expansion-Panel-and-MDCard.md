@@ -1,4 +1,4 @@
-![banner.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/expansion-panel.gif)
+![banner.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/ezgif-5-8eaea5b6cec4.gif)
 
 ## Example of using MDCard with Expansion:
 
