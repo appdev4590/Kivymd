@@ -1,13 +1,12 @@
 ![backdrop.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/backdrop.gif)
 
-## Example of using MDBottomAppBar:
+## Example of using MDBackdrop:
 
 ```python
 from kivy.lang import Builder
 from kivy.properties import StringProperty, BooleanProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import Screen
-
 from kivymd.app import MDApp
 from kivymd.theming import ThemableBehavior
 
@@ -133,30 +132,30 @@ Builder.load_string(
                 height: self.minimum_height
                 cols: 1
                 padding: "5dp"
-        
+
                 ItemBackdropBackLayer:
-                    icon: 'theater'
+                    icon: "theater"
                     text: "TV & Home Theaters"
                 ItemBackdropBackLayer:
-                    icon: 'desktop-mac'
+                    icon: "desktop-mac"
                     text: "Computers"
                 ItemBackdropBackLayer:
-                    icon: 'camera-plus-outline'
+                    icon: "camera-plus-outline"
                     text: "Camera and Camcorders"
                 ItemBackdropBackLayer:
-                    icon: 'speaker'
+                    icon: "speaker"
                     text: "Speakers"
                 ItemBackdropBackLayer:
-                    icon: 'cellphone-iphone'
+                    icon: "cellphone-iphone"
                     text: "Mobile Phones"
                 ItemBackdropBackLayer:
-                    icon: 'movie-outline'
+                    icon: "movie-outline"
                     text: "Movies"
                 ItemBackdropBackLayer:
-                    icon: 'gamepad-variant-outline'
+                    icon: "gamepad-variant-outline"
                     text: "Games"
                 ItemBackdropBackLayer:
-                    icon: 'music-circle-outline'
+                    icon: "music-circle-outline"
                     text: "Music"
 
     Screen:
@@ -201,7 +200,7 @@ Builder.load_string(
                 MDLabel:
                     text: "Types of TVs Home Theater Product"
                     color: 1, 1, 1, 1
-                
+
                 ItemRoundBackdropBackLayerOfSecondScreen:
                     text: "TVs up to 32\\""
                 ItemRoundBackdropBackLayerOfSecondScreen:
@@ -220,8 +219,8 @@ Builder.load_string(
         id: backdrop
         on_open: print("on_open")
         on_close: print("on_close")
-        left_action_items: [['menu', lambda x: self.open()]]
-        title: "Example Backdrop"
+        left_action_items: [["menu", lambda x: self.open()]]
+        title: app.title
         header_text: "Menu:"
 
         MDBackdropBackLayer:
@@ -254,14 +253,16 @@ class ItemBackdropBackLayer(ThemableBehavior, BoxLayout):
         return super().on_touch_down(touch)
 
 
-class Test(MDApp):
+class MainApp(MDApp):
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        self.title = "KivyMD Example - Backdrop"
         self.theme_cls.primary_palette = "DeepPurple"
+        super().__init__(**kwargs)
 
     def build(self):
-        return ExampleBackdrop()
+        self.root = ExampleBackdrop()
 
 
-Test().run()
+if __name__ == "__main__":
+    MainApp().run()
 ```
