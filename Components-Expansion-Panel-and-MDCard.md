@@ -11,6 +11,7 @@ root_kv = """
 #:import Content __main__.Content
 #:import get_hex_from_color kivy.utils.get_hex_from_color
 #:import Animation kivy.animation.Animation
+#:import MDExpansionPanel kivymd.uix.expansionpanel.MDExpansionPanel
 
 
 <Content>:
