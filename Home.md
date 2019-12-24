@@ -57,8 +57,6 @@ Documentation
 * [File Manager](Components-File-Manager)
 * [List Item with Checkbox](Components-List-Item-with-Checkbox)
 * [Navigation Drawer](Components-Navigation-Drawer)
-  * [Navigation Drawer Customization](Components-Navigation-Drawer-Custom)
-  * [Navigation Drawer with Custom NavigationDrawerIconButton](Components-Navigation-Drawer-with-custom-NavigationDrawerIconButton)
 * [Progress Loader](Components-Progress-Loader)
 * [Refresh Layout](Components-Refresh-Layout)
 * [SmartTileWithStar](Components-SmartTileWithStar)
