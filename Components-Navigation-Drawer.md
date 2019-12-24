@@ -2,75 +2,156 @@
 
 ## Example of using a class MDNavigationDrawer:
 
+## Using MDNavigationDrawer has changed!
+
+You should now use this markup structure:
+
 ```python
-from kivy.lang import Builder
+Root:
+
+    NavigationLayout:
+
+        ScreenManager:
+
+            ...
+            ...
+
+        MDNavigationDrawer:
+
+            UserContentNavigationDrawer:
+```
+
+`MDNavigationDrawer` is an empty `MDCard` class into which you add your own content.
+
+```python
+from kivy.uix.boxlayout import BoxLayout
+
 from kivymd.app import MDApp
-from kivymd.toast import toast
+from kivy.lang import Builder
+from kivy.properties import StringProperty
 
-root_kv = """
-#:import NavigationLayout kivymd.uix.navigationdrawer.NavigationLayout
+from kivymd.uix.list import OneLineAvatarListItem
 
-
-<ContentNavigationDrawer@MDNavigationDrawer>:
-    drawer_logo: "demos/kitchen_sink/assets/drawer_logo.png"
-
-    NavigationDrawerSubheader:
-        text: "Menu:"
-
-    NavigationDrawerIconButton:
-        icon: "numeric-1-circle"
-        text: "First menu button"
-        on_release: app.callback(self.text)
-
-    NavigationDrawerIconButton:
-        icon: "checkbox-blank-circle"
-        text: "Second menu button"
-        on_release: app.callback(self.text)
-
-    NavigationDrawerIconButton:
-        icon: "numeric-3-box"
-        text: "Third menu button"
-        on_release: app.callback(self.text)
+KV = '''
+#:import IconLeftWidget kivymd.uix.list.IconLeftWidget
+#:import images_path kivymd.images_path
 
 
-NavigationLayout:
-    id: nav_layout
+<NavigationItem>
+    theme_text_color: 'Custom'
+    divider: None
 
-    ContentNavigationDrawer:
-        id: nav_drawer
+    IconLeftWidget:
+        icon: root.icon
+
+
+<ContentNavigationDrawer>
 
     BoxLayout:
-        orientation: "vertical"
+        orientation: 'vertical'
 
-        MDToolbar:
-            id: toolbar
-            title: app.title
-            md_bg_color: app.theme_cls.primary_color
-            background_palette: "Primary"
-            background_hue: "500"
-            elevation: 10
-            left_action_items:
-                [["menu", lambda x: app.root.toggle_nav_drawer()]]
+        FloatLayout:
+            size_hint_y: None
+            height: "200dp"
 
-        BoxLayout:
-            id: content
-            orientation: "vertical"
-"""
+            canvas:
+                Color:
+                    rgba: app.theme_cls.primary_color
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            BoxLayout:
+                id: top_box
+                size_hint_y: None
+                height: "200dp"
+                #padding: "10dp"
+                x: root.parent.x
+                pos_hint: {"top": 1}
+
+                FitImage:
+                    source: f"{images_path}kivymd_alpha.png"
+
+            MDIconButton:
+                icon: "close"
+                x: root.parent.x + dp(10)
+                pos_hint: {"top": 1}
+                on_release: root.parent.toggle_nav_drawer()
+
+            MDLabel:
+                markup: True
+                text: "[b]KivyMD[/b]\\nVersion: 0.102.1"
+                #pos_hint: {'center_y': .5}
+                x: root.parent.x + dp(10)
+                y: root.height - top_box.height + dp(10)
+                size_hint_y: None
+                height: self.texture_size[1]
+
+        ScrollView:
+            pos_hint: {"top": 1}
+
+            GridLayout:
+                id: box_item
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
 
 
-class MainApp(MDApp):
-    def __init__(self, **kwargs):
-        self.title = "KivyMD Example - Navigation Drawer"
-        self.theme_cls.primary_palette = "Teal"
-        super().__init__(**kwargs)
+Screen:
 
+    NavigationLayout:
+
+        ScreenManager:
+
+            Screen:
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    MDToolbar:
+                        title: "Navigation Drawer"
+                        md_bg_color: app.theme_cls.primary_color
+                        elevation: 10
+                        left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
+
+                    Widget:
+
+
+        MDNavigationDrawer:
+            id: nav_drawer
+
+            ContentNavigationDrawer:
+                id: content_drawer
+
+'''
+
+
+class ContentNavigationDrawer(BoxLayout):
+    pass
+
+
+class NavigationItem(OneLineAvatarListItem):
+    icon = StringProperty()
+
+
+class TestNavigationDrawer(MDApp):
     def build(self):
-        self.root = Builder.load_string(root_kv)
+        return Builder.load_string(KV)
 
-    def callback(self, text):
-        toast(f'Pressed item menu "{text}"')
+    def on_start(self):
+        for items in {
+            "home-circle-outline": "Home",
+            "update": "Check for Update",
+            "settings-outline": "Settings",
+            "exit-to-app": "Exit",
+        }.items():
+            self.root.ids.content_drawer.ids.box_item.add_widget(
+                NavigationItem(
+                    text=items[1],
+                    icon=items[0],
+                )
+            )
 
 
-if __name__ == "__main__":
-    MainApp().run()
+TestNavigationDrawer().run()
 ```
