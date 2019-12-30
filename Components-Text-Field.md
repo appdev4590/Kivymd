@@ -81,9 +81,6 @@ Builder.load_string(
             MDTextField:
                 hint_text: "disabled = True"
                 disabled: True
-
-            MDTextFieldClear:
-                hint_text: "Text field with clearing type"
 """
 )
 
