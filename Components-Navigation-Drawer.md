@@ -59,7 +59,7 @@ KV = '''
             id: avatar
             size_hint: None, None
             size: "56dp", "56dp"
-            source: "/Users/macbookair/Projects/My-Project/KivyMD/kivymd/images/kivymd_logo.png"
+            source: "data/logo/kivy-icon-256.png"
 
     MDLabel:
         text: "KivyMD library"
