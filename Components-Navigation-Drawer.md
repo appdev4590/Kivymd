@@ -1,4 +1,4 @@
-![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/navdrawer.gif)
+![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/drawer-work.gif)
 
 ## Example of using a class MDNavigationDrawer:
 
@@ -24,77 +24,60 @@ Root:
 `MDNavigationDrawer` is an empty `MDCard` class into which you add your own content.
 
 ```python
-from kivy.uix.boxlayout import BoxLayout
-
-from kivymd.app import MDApp
 from kivy.lang import Builder
+from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import StringProperty
 
-from kivymd.uix.list import OneLineAvatarListItem
+from kivymd.app import MDApp
+from kivymd.theming import ThemableBehavior
+from kivymd.uix.list import OneLineIconListItem, MDList
 
 KV = '''
-#:import IconLeftWidget kivymd.uix.list.IconLeftWidget
-#:import images_path kivymd.images_path
-
-
-<NavigationItem>
-    theme_text_color: 'Custom'
-    divider: None
+# Menu item in the DrawerList list.
+<ItemDrawer>:
+    theme_text_color: "Custom"
+    on_release: self.parent.set_color_item(self)
 
     IconLeftWidget:
+        id: icon
         icon: root.icon
+        theme_text_color: "Custom"
+        text_color: root.text_color
 
 
-<ContentNavigationDrawer>
+<ContentNavigationDrawer>:
+    orientation: "vertical"
+    padding: "8dp"
+    spacing: "8dp"
 
-    BoxLayout:
-        orientation: 'vertical'
+    AnchorLayout:
+        anchor_x: "left"
+        size_hint_y: None
+        height: avatar.height
 
-        FloatLayout:
-            size_hint_y: None
-            height: "200dp"
+        Image:
+            id: avatar
+            size_hint: None, None
+            size: "56dp", "56dp"
+            source: "/Users/macbookair/Projects/My-Project/KivyMD/kivymd/images/kivymd_logo.png"
 
-            canvas:
-                Color:
-                    rgba: app.theme_cls.primary_color
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
+    MDLabel:
+        text: "KivyMD library"
+        font_style: "Button"
+        size_hint_y: None
+        height: self.texture_size[1]
 
-            BoxLayout:
-                id: top_box
-                size_hint_y: None
-                height: "200dp"
-                #padding: "10dp"
-                x: root.parent.x
-                pos_hint: {"top": 1}
+    MDLabel:
+        text: "kivydevelopment@gmail.com"
+        font_style: "Caption"
+        size_hint_y: None
+        height: self.texture_size[1]
 
-                FitImage:
-                    source: f"{images_path}kivymd_alpha.png"
+    ScrollView:
 
-            MDIconButton:
-                icon: "close"
-                x: root.parent.x + dp(10)
-                pos_hint: {"top": 1}
-                on_release: root.parent.toggle_nav_drawer()
+        DrawerList:
+            id: md_list
 
-            MDLabel:
-                markup: True
-                text: "[b]KivyMD[/b]\\nVersion: 0.102.1"
-                #pos_hint: {'center_y': .5}
-                x: root.parent.x + dp(10)
-                y: root.height - top_box.height + dp(10)
-                size_hint_y: None
-                height: self.texture_size[1]
-
-        ScrollView:
-            pos_hint: {"top": 1}
-
-            GridLayout:
-                id: box_item
-                cols: 1
-                size_hint_y: None
-                height: self.minimum_height
 
 
 Screen:
@@ -110,7 +93,6 @@ Screen:
 
                     MDToolbar:
                         title: "Navigation Drawer"
-                        md_bg_color: app.theme_cls.primary_color
                         elevation: 10
                         left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
 
@@ -122,7 +104,6 @@ Screen:
 
             ContentNavigationDrawer:
                 id: content_drawer
-
 '''
 
 
@@ -130,8 +111,20 @@ class ContentNavigationDrawer(BoxLayout):
     pass
 
 
-class NavigationItem(OneLineAvatarListItem):
+class ItemDrawer(OneLineIconListItem):
     icon = StringProperty()
+
+
+class DrawerList(ThemableBehavior, MDList):
+    def set_color_item(self, instance_item):
+        """Called when tap on a menu item."""
+
+        # Set the color of the icon and text for the menu item.
+        for item in self.children:
+            if item.text_color == self.theme_cls.primary_color:
+                item.text_color = self.theme_cls.text_color
+                break
+        instance_item.text_color = self.theme_cls.primary_color
 
 
 class TestNavigationDrawer(MDApp):
@@ -139,17 +132,17 @@ class TestNavigationDrawer(MDApp):
         return Builder.load_string(KV)
 
     def on_start(self):
-        for items in {
-            "home-circle-outline": "Home",
-            "update": "Check for Update",
-            "settings-outline": "Settings",
-            "exit-to-app": "Exit",
-        }.items():
-            self.root.ids.content_drawer.ids.box_item.add_widget(
-                NavigationItem(
-                    text=items[1],
-                    icon=items[0],
-                )
+        icons_item = {
+            "folder": "My files",
+            "account-multiple": "Shared with me",
+            "star": "Starred",
+            "history": "Recent",
+            "checkbox-marked": "Shared with me",
+            "upload": "Upload",
+        }
+        for icon_name in icons_item.keys():
+            self.root.ids.content_drawer.ids.md_list.add_widget(
+                ItemDrawer(icon=icon_name, text=icons_item[icon_name])
             )
 
 
