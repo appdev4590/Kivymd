@@ -1,4 +1,4 @@
-![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/drawer-work.gif)
+![drawerwork.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/drawer-work.gif)
 
 ## Example of using a class MDNavigationDrawer:
 
