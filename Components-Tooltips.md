@@ -4,74 +4,54 @@
 
 ```python
 from kivy.lang import Builder
-from kivy.factory import Factory
+
 from kivymd.app import MDApp
+from kivymd.uix.button import MDIconButton
+from kivymd.uix.tooltip import MDTooltip
+from kivymd.icon_definitions import md_icons
 
-Builder.load_string(
-    """
-#:import random random
-#:import hex_colormap kivy.utils.hex_colormap
-#:import get_color_from_hex kivy.utils.get_color_from_hex
-#:import md_icons kivymd.icon_definitions.md_icons
-
-#:set ICONS list(md_icons.keys())
-
-
-<IconButtonTooltips@MDIconButton+MDTooltip>
-
-
-<ExampleTooltips@BoxLayout>
+KV = """
+BoxLayout:
     orientation: "vertical"
 
     MDToolbar:
-        title: app.title
-        md_bg_color: get_color_from_hex(hex_colormap["crimson"])
+        title: "MDTooltip"
         elevation: 10
-        left_action_items: [["menu", lambda x: None]]
-        tooltip_text: "MDToolbar"
 
     Screen:
 
         BoxLayout:
+            id: box
             size_hint: None, None
             size: self.minimum_size
             padding: "10dp"
             spacing: "10dp"
             pos_hint: {"center_x": .5, "center_y": .9}
-
-            IconButtonTooltips:
-                icon: random.choice(ICONS)
-                tooltip_text: "MDIconButton"
-            IconButtonTooltips:
-                icon: random.choice(ICONS)
-                tooltip_text: "MDIconButton"
-            IconButtonTooltips:
-                icon: random.choice(ICONS)
-                tooltip_text: "MDIconButton"
-            IconButtonTooltips:
-                icon: random.choice(ICONS)
-                tooltip_text: "MDIconButton"
-            IconButtonTooltips:
-                icon: random.choice(ICONS)
-                tooltip_text: "MDIconButton"
-            IconButtonTooltips:
-                icon: random.choice(ICONS)
-                tooltip_text: "MDIconButton"
 """
-)
+
+
+class IconButtonTooltips(MDIconButton, MDTooltip):
+    pass
 
 
 class MainApp(MDApp):
     def __init__(self, **kwargs):
-        self.title = "KivyMD Example - Tooltip"
         super().__init__(**kwargs)
 
     def build(self):
-        self.root = Factory.ExampleTooltips()
+        return Builder.load_string(KV)
+
+    def on_start(self):
+        for name_icon in list(md_icons.keys())[10:16]:
+            self.root.ids.box.add_widget(
+                IconButtonTooltips(
+                    icon=name_icon,
+                    tooltip_text=name_icon,
+                )
+            )
 
 
-if __name__ == "__main__":
-    MainApp().run()
+MainApp().run()
 ```
 
 ## MDTooltip Behavior on Mobile:
