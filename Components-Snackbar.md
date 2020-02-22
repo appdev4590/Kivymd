@@ -67,8 +67,8 @@ Screen:
 
 
 class MainApp(MDApp):
-    _interval = NumericProperty()
-    my_snackbar = ObjectProperty(None, allownone=True)
+    _interval = 0
+    my_snackbar = None
 
     def build(self):
         self.root = Builder.load_string(root_kv)
