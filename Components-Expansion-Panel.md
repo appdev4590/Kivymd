@@ -8,7 +8,7 @@ from kivy.uix.boxlayout import BoxLayout
 
 from kivymd.app import MDApp
 from kivymd import images_path
-from kivymd.uix.expansionpanel import MDExpansionPanel, MDExpansionPanelOneLine
+from kivymd.uix.expansionpanel import MDExpansionPanel, MDExpansionPanelThreerLine
 
 KV = '''
 <Content>
@@ -53,7 +53,7 @@ class Test(MDApp):
                 MDExpansionPanel(
                     icon=f"{images_path}kivymd_logo.png",
                     content=Content(),
-                    panel_cls=MDExpansionPanelOneLine(
+                    panel_cls=MDExpansionPanelThreerLine(
                         text="Text",
                         secondary_text="Secondary text",
                         tertiary_text="Tertiary text",
