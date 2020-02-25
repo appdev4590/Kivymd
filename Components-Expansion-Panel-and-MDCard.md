@@ -5,13 +5,14 @@
 ```python
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
+from kivy.animation import Animation
+
 from kivymd.app import MDApp
+from kivymd.uix.expansionpanel import MDExpansionPanelOneLine, MDExpansionPanel
+from kivymd import images_path
 
 root_kv = """
-#:import Content __main__.Content
 #:import get_hex_from_color kivy.utils.get_hex_from_color
-#:import Animation kivy.animation.Animation
-#:import MDExpansionPanel kivymd.uix.expansionpanel.MDExpansionPanel
 
 
 <Content>:
@@ -42,7 +43,12 @@ root_kv = """
 
 Screen:
 
+    MDToolbar:
+        title: "Expansion Panel with Card"
+        pos_hint: {"top": 1}
+
     MDCard:
+        id: card
         orientation: "vertical"
         size_hint: .6, None
         height: self.minimum_height
@@ -54,14 +60,7 @@ Screen:
             height: dp(150)
 
             FitImage:
-                source: "image.png"
-
-        MDExpansionPanel:
-            on_open: Animation(height=(box.height + self.content.height) - dp(70), d=.2).start(box)
-            on_close: Animation(height=(box.height - self.content.height) + dp(70), d=.2).start(box)
-            icon: "avatar.png"
-            content: Content()
-            title: "HeaTTheatR"
+                source: "demos/kitchen_sink/assets/guitar-1139397_1280.png"
 """
 
 
@@ -71,14 +70,38 @@ class Content(BoxLayout):
 
 class MainApp(MDApp):
     def __init__(self, **kwargs):
-        self.title = "KivyMD Examples - Expansion Panel with Card"
-        self.theme_cls.primary_palette = "Teal"
+        self.title = "Expansion Panel with Card"
         super().__init__(**kwargs)
 
     def build(self):
         self.root = Builder.load_string(root_kv)
 
+    def on_start(self):
+        content = Content()
+        self.root.ids.card.add_widget(
+            MDExpansionPanel(
+                on_open=self.panel_open,
+                on_close=self.panel_close,
+                icon=f"{images_path}kivymd_logo.png",
+                content=content,
+                panel_cls=MDExpansionPanelOneLine(text="KivyMD v.0.103.0"),
+            )
+        )
 
-if __name__ == "__main__":
-    MainApp().run()
+    def panel_open(self, *args):
+        Animation(
+            height=(self.root.ids.box.height + self.root.ids.content.height)
+            - self.theme_cls.standard_increment * 2,
+            d=0.2,
+        ).start(self.root.ids.box)
+
+    def panel_close(self, *args):
+        Animation(
+            height=(self.root.ids.box.height - self.root.ids.content.height)
+            + self.theme_cls.standard_increment * 2,
+            d=0.2,
+        ).start(self.root.ids.box)
+
+
+MainApp().run()
 ```
