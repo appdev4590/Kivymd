@@ -7,21 +7,23 @@ from kivy.lang import Builder
 
 from kivymd.app import MDApp
 
-KV = '''
-Screen:
-
-    MDFloatingActionButtonSpeedDial:
-        data: app.data
-        rotation_root_button: True
-'''
+KV = """
+MDFloatingActionButtonSpeedDial:
+    data: app.data
+    rotation_root_button: True
+    callback: app.callback
+"""
 
 
 class Example(MDApp):
     data = {
-        'language-python': 'Python',
-        'language-php': 'PHP',
-        'language-cpp': 'C++',
+        "language-python": "Python",
+        "language-php": "PHP",
+        "language-cpp": "C++",
     }
+
+    def callback(self, instance):
+        print(instance.icon)
 
     def build(self):
         return Builder.load_string(KV)
