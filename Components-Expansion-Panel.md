@@ -34,7 +34,6 @@ Screen:
 
         ScrollView:
 
-
             GridLayout:
                 cols: 1
                 size_hint_y: None
