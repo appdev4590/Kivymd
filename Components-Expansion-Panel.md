@@ -34,7 +34,11 @@ Screen:
 
         ScrollView:
 
-            MDList:
+
+            GridLayout:
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
                 id: box
 '''
 
