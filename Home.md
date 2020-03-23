@@ -54,7 +54,6 @@ Documentation
   * [DropDownItem with ScrollView](Components-DropDownItem-with-ScrollView)
 * [Expansion Panel](Components-Expansion-Panel)
   * [Expansion Panel and MDCard](Components-Expansion-Panel-and-MDCard)
-* [Fan Screen Manager](Components-Fan-Screen-Manager)
 * [File Manager](Components-File-Manager)
 * [List Item with Checkbox](Components-List-Item-with-Checkbox)
 * [Navigation Drawer](Components-Navigation-Drawer)
