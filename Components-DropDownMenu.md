@@ -4,85 +4,107 @@
 
 ```python
 from kivy.lang import Builder
-from kivy.factory import Factory
-from kivy.properties import ListProperty
+
 from kivymd.app import MDApp
-from kivymd.toast import toast
+from kivymd.uix.menu import MDDropdownMenu, RightContent
+from kivymd.theming import ThemableBehavior
+from kivymd.uix.behaviors import RectangularElevationBehavior
+from kivymd.uix.boxlayout import MDBoxLayout
 
-Builder.load_string(
-    """
-# Here a compulsory import
-#:import MDDropdownMenu kivymd.uix.menu.MDDropdownMenu
+KV = """
+<RightContentCls>
+    disabled: True
+
+    MDIconButton:
+        icon: root.icon
+        user_font_size: "16sp"
+        pos_hint: {"center_y": .5}
+
+    MDLabel:
+        text: root.text
+        font_style: "Caption"
+        size_hint_x: None
+        width: self.texture_size[0]
+        text_size: None, None
 
 
-<Menu@Screen>:
+<CustomToolbar>:
+    size_hint_y: None
+    height: self.theme_cls.standard_increment
+    padding: "5dp"
+    spacing: "12dp"
 
-    MDRaisedButton:
-        size_hint: None, None
-        size: 3 * dp(48), dp(48)
-        text: "Open menu"
-        opposite_colors: True
-        pos_hint: {"center_x": .2, "center_y": .9}
-        on_release: MDDropdownMenu(items=app.menu_items, width_mult=3).open(self)
+    MDIconButton:
+        id: button_1
+        icon: "menu"
+        pos_hint: {"center_y": .5}
+        on_release: app.menu_1.open()
 
-    MDRaisedButton:
-        size_hint: None, None
-        size: 3 * dp(48), dp(48)
-        text: "Open menu"
-        opposite_colors: True
-        pos_hint: {"center_x": .2, "center_y": .1}
-        on_release:
-            MDDropdownMenu(items=app.menu_items, width_mult=3).open(self)
+    MDLabel:
+        text: "MDDropdownMenu"
+        pos_hint: {"center_y": .5}
+        size_hint_x: None
+        width: self.texture_size[0]
+        text_size: None, None
+        font_style: 'H6'
 
-    MDRaisedButton:
-        size_hint: None, None
-        size: 3 * dp(48), dp(48)
-        text: "Open menu"
-        opposite_colors: True
-        pos_hint: {"center_x": .8, "center_y": .1}
-        on_release: MDDropdownMenu(items=app.menu_items, width_mult=3).open(self)
+    Widget:
 
-    MDRaisedButton:
-        size_hint: None, None
-        size: 3 * dp(48), dp(48)
-        text: "Open menu"
-        opposite_colors: True
-        pos_hint: {"center_x": .8, "center_y": .9}
-        on_release: MDDropdownMenu(items=app.menu_items, width_mult=3).open(self)
+    MDIconButton:
+        id: button_2
+        icon: "dots-vertical"
+        pos_hint: {"center_y": .5}
+        on_release: app.menu_2.open()
 
-    MDRaisedButton:
-        size_hint: None, None
-        size: 3 * dp(48), dp(48)
-        text: "Open menu"
-        opposite_colors: True
-        pos_hint: {"center_x": .5, "center_y": .5}
-        on_release: MDDropdownMenu(items=app.menu_items, width_mult=4).open(self)
+
+Screen:
+
+    CustomToolbar:
+        id: toolbar
+        elevation: 10
+        pos_hint: {"top": 1}
 """
-)
 
 
-class MainApp(MDApp):
-    menu_items = ListProperty()
+class RightContentCls(RightContent):
+    pass
 
+
+class CustomToolbar(
+    ThemableBehavior, RectangularElevationBehavior, MDBoxLayout,
+):
     def __init__(self, **kwargs):
-        self.title = "KivyMD Examples - DropDownMenu"
         super().__init__(**kwargs)
+        self.md_bg_color = self.theme_cls.primary_color
+
+
+class Test(MDApp):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.screen = Builder.load_string(KV)
+        self.menu_1 = self.create_menu(
+            "Button menu", self.screen.ids.toolbar.ids.button_1
+        )
+        self.menu_2 = self.create_menu(
+            "Button dots", self.screen.ids.toolbar.ids.button_2
+        )
+
+    def create_menu(self, text, instance):
+        menu_items = [
+            {
+                "right_content_cls": RightContentCls(
+                    text=f"R+{i}", icon="apple-keyboard-command",
+                ),
+                "icon": "git",
+                "text": text,
+            }
+            for i in range(5)
+        ]
+        return MDDropdownMenu(caller=instance, items=menu_items, width_mult=5)
 
     def build(self):
-        self.menu_items = [
-            {
-                "viewclass": "MDMenuItem",
-                "text": "Example item %d" % i,
-                "callback": self.callback_for_menu_items,
-            }
-            for i in range(15)
-        ]
-        self.root = Factory.Menu()
-
-    def callback_for_menu_items(self, *args):
-        toast(args[0])
+        return self.screen
 
 
-if __name__ == "__main__":
-    MainApp().run()
+Test().run()
 ```
