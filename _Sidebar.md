@@ -14,7 +14,6 @@
 * [Bottom Sheet](Components-Bottom-Sheet)
 * [Bottom Navigation](Components-Bottom-Navigation)
 * [Button](Components-Button)
-* [Card Post](Components-Card-Post)
 * [Chip](Components-Chip)
 * [Date Picker](Components-Date-Picker)
 * [Dialog](Components-Dialog)
