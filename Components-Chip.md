@@ -4,7 +4,9 @@
 
 ```python
 from kivy.lang import Builder
+
 from kivymd.app import MDApp
+from kivymd.toast import toast
 
 kv = """
 BoxLayout:
@@ -125,16 +127,19 @@ BoxLayout:
                     label: "Earth"
                     icon: "earth"
                     callback: app.callback
+                    selected_chip_color: .21176470535294, .098039627451, 1, 1
 
                 MDChip:
                     label: "Face"
                     icon: "face"
                     callback: app.callback
+                    selected_chip_color: .21176470535294, .098039627451, 1, 1
 
                 MDChip:
                     label: "Facebook"
                     icon: "facebook"
                     callback: app.callback
+                    selected_chip_color: .21176470535294, .098039627451, 1, 1
 """
 
 
@@ -147,8 +152,8 @@ class MainApp(MDApp):
     def build(self):
         self.root = Builder.load_string(kv)
 
-    def callback(self, name_chip):
-        pass
+    def callback(self, instance, value):
+        toast(value)
 
 
 if __name__ == "__main__":
