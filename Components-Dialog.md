@@ -1,89 +1,46 @@
-### Dialog on Android
-![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/dialog.gif)
-
-### Dialog on iOS
-![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/dialog_ios.gif)
+### Dialog
+![alert-dialog.png](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/alert-dialog.png)
 
 ## Example of using MDDialog:
 
 ```python
-from kivy.lang import Builder
-from kivy.factory import Factory
-from kivy.utils import get_hex_from_color
-from kivymd.app import MDApp
-from kivymd.uix.dialog import MDInputDialog, MDDialog
+    from kivy.lang import Builder
 
-Builder.load_string(
-    """
-<ExampleDialogs@BoxLayout>
-    orientation: "vertical"
-    spacing: dp(5)
+    from kivymd.app import MDApp
+    from kivymd.uix.button import MDFlatButton
+    from kivymd.uix.dialog import MDDialog
 
-    MDToolbar:
-        id: toolbar
-        title: app.title
-        left_action_items: [["menu", lambda x: None]]
-        elevation: 10
-        md_bg_color: app.theme_cls.primary_color
-
+    KV = '''
     FloatLayout:
-        MDRectangleFlatButton:
-            text: "Open input dialog"
-            pos_hint: {"center_x": .5, "center_y": .7}
-            opposite_colors: True
-            on_release: app.show_example_input_dialog()
 
-        MDRectangleFlatButton:
-            text: "Open Ok Cancel dialog"
-            pos_hint: {"center_x": .5, "center_y": .5}
-            opposite_colors: True
-            on_release: app.show_example_okcancel_dialog()
-"""
-)
+        MDFlatButton:
+            text: "ALERT DIALOG"
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            on_release: app.show_alert_dialog()
+    '''
 
 
-class MainApp(MDApp):
-    def __init__(self, **kwargs):
-        self.title = "KivyMD Examples - Dialog"
-        self.theme_cls.primary_palette = "Teal"
-        super().__init__(**kwargs)
+    class Example(MDApp):
+        dialog = None
 
-    def build(self):
-        self.root = Factory.ExampleDialogs()
+        def build(self):
+            return Builder.load_string(KV)
 
-    def callback_for_menu_items(self, *args):
-        from kivymd.toast.kivytoast import toast
-
-        toast(args[0])
-
-    def show_example_input_dialog(self):
-        dialog = MDInputDialog(
-            title="Title",
-            hint_text="Hint text",
-            size_hint=(0.8, 0.4),
-            text_button_ok="Yes",
-            events_callback=self.callback_for_menu_items,
-        )
-        dialog.open()
-
-    def show_example_okcancel_dialog(self):
-        dialog = MDDialog(
-            title="Title",
-            size_hint=(0.8, 0.3),
-            text_button_ok="Yes",
-            text="Your [color=%s][b]text[/b][/color] dialog"
-            % get_hex_from_color(self.theme_cls.primary_color),
-            text_button_cancel="Cancel",
-            events_callback=self.callback_for_menu_items,
-        )
-        dialog.open()
+        def show_alert_dialog(self):
+            if not self.dialog:
+                self.dialog = MDDialog(
+                    text="Discard draft?",
+                    buttons=[
+                        MDFlatButton(
+                            text="CANCEL", text_color=self.theme_cls.primary_color
+                        ),
+                        MDFlatButton(
+                            text="DISCARD", text_color=self.theme_cls.primary_color
+                        ),
+                    ],
+                )
+            self.dialog.open()
 
 
-if __name__ == "__main__":
-    MainApp().run()
+    Example().run()
 ```
-
-In the dialog you can use two buttons:
-**text_button_ok** and **text_button_cancel**
-
-The library itself determines the platform and selects the desired type of windows for Android and iOS!
