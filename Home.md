@@ -29,7 +29,7 @@ Useful links
 * [Hidden Settings for MIUI](https://play.google.com/store/apps/details?id=com.ceyhan.sets) - This application allows you to access some of native android options on your MIUI installed device which is been hidden by the manufacturer.
 * [KaTrain](https://github.com/sanderland/katrain/) - KaTrain is a tool for analyzing and playing go with AI feedback from KataGo.
 * [inClass (An attendence App)](https://www.youtube.com/watch?v=tij7nK0z-_U) - An app designed by students for the students. Purpose – is used for enrolling in online classes and checking attendence (to Excel data can be easily exported)
-
+* [BMI Calculator](https://github.com/Hash-Studios/Kivy-BMI-App) - This app is a cross-platform BMI Calculator which is completely developed using Python3 and kivy framework. KivyMD widgets were also used.
 
 Documentation
 -------------
