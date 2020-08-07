@@ -26,7 +26,7 @@ Root:
 ```python
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
-from kivy.properties import StringProperty
+from kivy.properties import StringProperty, ListProperty
 
 from kivymd.app import MDApp
 from kivymd.theming import ThemableBehavior
@@ -113,6 +113,7 @@ class ContentNavigationDrawer(BoxLayout):
 
 class ItemDrawer(OneLineIconListItem):
     icon = StringProperty()
+    text_color = ListProperty((0, 0, 0, 1))
 
 
 class DrawerList(ThemableBehavior, MDList):
