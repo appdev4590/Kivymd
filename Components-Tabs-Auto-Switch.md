@@ -73,7 +73,7 @@ class Test(MDApp):
         menu_items = [{"text": f"Tab {i}"} for i in range(3)]
         return MDDropdownMenu(
             caller=instance, 
-            tems=menu_items,
+            items=menu_items,
             width_mult=5,
             callback=self.callback,
         )
