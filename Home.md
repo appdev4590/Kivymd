@@ -24,7 +24,7 @@ Useful links
 
 [Find on GitHub](https://github.com/HeaTTheatR/KivyMD/network/dependents)
 
-* [Creator Kivy Project](https://github.com/HeaTTheatR/CreatorKivyProject) - Wizard for creating a new project for applications written using the Kivy framework
+* [Car Locator](https://github.com/adywizard/car-locatort) - Car locator android app
 * [Expense Tracker](https://github.com/adityabhawsingka/ExpenseTracker) - Android app for maintaining a list of expenses done over several days, months and years.
 * [Hidden Settings for MIUI](https://play.google.com/store/apps/details?id=com.ceyhan.sets) - This application allows you to access some of native android options on your MIUI installed device which is been hidden by the manufacturer.
 * [KaTrain](https://github.com/sanderland/katrain/) - KaTrain is a tool for analyzing and playing go with AI feedback from KataGo.
