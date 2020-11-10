@@ -59,7 +59,6 @@ Useful links
 * [File Manager](Components-File-Manager)
 * [List Item with Checkbox](Components-List-Item-with-Checkbox)
 * [Navigation Drawer](Components-Navigation-Drawer)
-* [Progress Loader](Components-Progress-Loader)
 * [Refresh Layout](Components-Refresh-Layout)
 * [SmartTileWithStar](Components-SmartTileWithStar)
 * [Snackbar](Components-Snackbar)
