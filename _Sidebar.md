@@ -38,7 +38,6 @@
   * [Text Field Rectangle](Components-Text-Field-Rectangle)
   * [Text Field Round](Components-Text-Field-Round)
 * [Time Picker](Components-Time-Picker)
-* [User Animation Card](Components-User-Animation-Card)
 
 ### Other
 
