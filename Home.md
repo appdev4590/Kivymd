@@ -65,7 +65,6 @@ Useful links
 * [Snackbar](Components-Snackbar)
 * [Slider and ProgressBar](Components-Slider-and-ProgressBar)
 * [Floating Action Button Speed Dial](Components-Floating-Action-Button-Speed-Dial)
-* [Swiper Manager](Components-Swiper-Manager)
 * [Tabs](Components-Tabs)
   * [Tabs Auto Switch](Components-Tabs-Auto-Switch)
 * [Tooltips](Components-Tooltips)
@@ -73,7 +72,6 @@ Useful links
   * [Text Field Rectangle](Components-Text-Field-Rectangle)
   * [Text Field Round](Components-Text-Field-Round)
 * [Time Picker](Components-Time-Picker)
-* [User Animation Card](Components-User-Animation-Card)
 
 
 ### Other
