@@ -24,7 +24,7 @@ Useful links
 
 [Find on GitHub](https://github.com/HeaTTheatR/KivyMD/network/dependents)
 
-* [Car Locator](https://github.com/adywizard/car-locatort) - Car locator android app
+* [Car Locator](https://github.com/adywizard/car-locator) - Car locator android app
 * [Hidden Hunger](https://github.com/flextian/Hidden-Hunger) - Inspired by the obscurity of smaller scale food organizations, Caring Cranes has decided to build Hidden Hunger to aid users in finding a food organization near their personal location.
 * [Expense Tracker](https://github.com/adityabhawsingka/ExpenseTracker) - Android app for maintaining a list of expenses done over several days, months and years.
 * [Hidden Settings for MIUI](https://play.google.com/store/apps/details?id=com.ceyhan.sets) - This application allows you to access some of native android options on your MIUI installed device which is been hidden by the manufacturer.
