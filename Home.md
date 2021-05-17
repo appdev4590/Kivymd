@@ -33,6 +33,7 @@ Useful links
 * [BMI Calculator](https://github.com/Hash-Studios/Kivy-BMI-App) - This app is a cross-platform BMI Calculator which is completely developed using Python3 and kivy framework. KivyMD widgets were also used.
 * [Naturtag: an iNaturalist Image Tagger](https://github.com/JWCook/naturtag) - A tool to browse and add iNaturalist taxonomy & observation metadata to local observation photos.
 * [Fitness App](https://github.com/Matan22g/FitnessApp) - A cross platform application for tracking gym sessions, performance improvements, and analyzing statistics.
+* [RDPass GUI](https://github.com/jeffreyrdcs/RDPass-GUI) - RD-Pass is a simple password manager application.
 -------------
 
 ### Modules
