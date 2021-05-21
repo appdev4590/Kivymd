@@ -34,6 +34,7 @@ Useful links
 * [Naturtag: an iNaturalist Image Tagger](https://github.com/JWCook/naturtag) - A tool to browse and add iNaturalist taxonomy & observation metadata to local observation photos.
 * [Fitness App](https://github.com/Matan22g/FitnessApp) - A cross platform application for tracking gym sessions, performance improvements, and analyzing statistics.
 * [RDPass GUI](https://github.com/jeffreyrdcs/RDPass-GUI) - RD-Pass is a simple password manager application.
+* [Killer](https://github.com/ntaraujo/killer) - Tired of trying to kill processes with the default Windows Task Manager? Selecting one by one? So this is for you.
 -------------
 
 ### Modules
