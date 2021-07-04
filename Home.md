@@ -35,6 +35,7 @@ Useful links
 * [Fitness App](https://github.com/Matan22g/FitnessApp) - A cross platform application for tracking gym sessions, performance improvements, and analyzing statistics.
 * [RDPass GUI](https://github.com/jeffreyrdcs/RDPass-GUI) - RD-Pass is a simple password manager application.
 * [Killer](https://github.com/ntaraujo/killer) - Tired of trying to kill processes with the default Windows Task Manager? Selecting one by one? So this is for you.
+* [Decentra-Network](https://github.com/Decentra-Network/Decentra-Network) - This is an open source decentralized application network. In this network, you can develop or use applications in your independent, decentralized application network.
 -------------
 
 ### Modules
