@@ -5,21 +5,20 @@
 ```python
 from kivy.lang import Builder
 from kivy.factory import Factory
+
 from kivymd.app import MDApp
 
 Builder.load_string(
     """
 <StyleLabel@MDLabel>:
-    size_hint_y: None
-    height: self.texture_size[1]
+    adaptive_height: True
 
 
-<StyleItemCheck@BoxLayout>:
+<StyleItemCheck@MDBoxLayout>:
     group: ""
     text: ""
     active: False
-    size_hint_y: None
-    height: self.minimum_height
+    adaptive_height: True
 
     MDCheckbox:
         group: root.group
@@ -37,7 +36,7 @@ Builder.load_string(
 <BottomAppBar@Screen>
     name: "bottom app bar"
 
-    BoxLayout:
+    MDBoxLayout:
         spacing: dp(10)
         orientation: "vertical"
 
@@ -48,9 +47,8 @@ Builder.load_string(
 
         ScrollView:
 
-            GridLayout:
-                size_hint_y: None
-                height: self.minimum_height
+            MDGridLayout:
+                adaptive_height: True
                 cols: 1
                 padding: "10dp"
                 spacing: "10dp"
