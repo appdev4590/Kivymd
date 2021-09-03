@@ -5,6 +5,7 @@
 ```python
 from kivy.lang import Builder
 from kivy.factory import Factory
+
 from kivymd.app import MDApp
 
 Builder.load_string(
@@ -28,10 +29,9 @@ Builder.load_string(
         size_hint_y: None
         height: Window.height - toolbar.height
 
-        GridLayout:
+        MDGridLayout:
             id: box
-            size_hint_y: None
-            height: self.minimum_height
+            adaptive_height: True
             cols: 1
             padding: "10dp"
             spacing: "10dp"
@@ -131,9 +131,9 @@ Builder.load_string(
 
 class MainApp(MDApp):
     def __init__(self, **kwargs):
+        super().__init__(**kwargs)
         self.title = "KivyMD Examples - Banner"
         self.theme_cls.primary_palette = "DeepPurple"
-        super().__init__(**kwargs)
 
     def build(self):
         self.root = Factory.ExampleBanner()
