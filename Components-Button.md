@@ -5,6 +5,7 @@
 ```python
 from kivy.lang import Builder
 from kivy.factory import Factory
+
 from kivymd.app import MDApp
 
 Builder.load_string(
