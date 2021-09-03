@@ -26,18 +26,16 @@ Builder.load_string(
         pos_hint: {"center_x": .5}
         bar_width: 0
 
-        BoxLayout:
+        MDBoxLayout:
             id: box
             padding: dp(10)
-            size_hint: None, None
-            size: self.minimum_size
+            adaptive_height: True
             spacing: dp(10)
             orientation: "vertical"
             pos_hint: {"center_x": .5}
 
-            BoxLayout:
-                size_hint: None, None
-                width: self.minimum_width
+            MDBoxLayout:
+                adaptive_height: size
                 height: dp(56)
                 spacing: "10dp"
 
@@ -103,11 +101,10 @@ Builder.load_string(
                 text: "MDTextButton"
                 pos_hint: {"center_x": .5}
 
-            BoxLayout:
+            MDBoxLayout:
                 orientation: "vertical"
                 spacing: "10dp"
-                size_hint: None, None
-                size: self.minimum_size
+                adaptive_size: True
                 pos_hint: {"center_x": .5}
 
                 MDSeparator:
@@ -198,9 +195,9 @@ Builder.load_string(
 
 class MainApp(MDApp):
     def __init__(self, **kwargs):
+        super().__init__(**kwargs)
         self.title = "KivyMD Examples - Buttons"
         self.theme_cls.primary_palette = "Blue"
-        super().__init__(**kwargs)
 
     def build(self):
         self.root = Factory.ExampleButtons()
