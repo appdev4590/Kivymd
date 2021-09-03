@@ -5,8 +5,9 @@
 ```python
 from kivy.lang import Builder
 from kivy.properties import StringProperty, BooleanProperty
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.screenmanager import Screen
+
+from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.uix.screen import MDScreen
 from kivymd.app import MDApp
 from kivymd.theming import ThemableBehavior
 
@@ -26,27 +27,21 @@ Builder.load_string(
 
 
 <ItemBackdropBackLayer>
-    size_hint_y: None
-    height: self.minimum_height
+    adaptive_height: True
     spacing: "10dp"
-
-    canvas:
-        Color:
-            rgba:
-                root.theme_cls.primary_dark if root.selected_item \
-                else root.theme_cls.primary_color
-        RoundedRectangle:
-            pos: self.pos
-            size: self.size
+    md_bg_color:
+        root.theme_cls.primary_dark \
+        if root.selected_item \
+        else root.theme_cls.primary_color
 
     MDIconButton:
         icon: root.icon
         theme_text_color: "Custom"
-        text_color: 1, 1, 1, .5 if not root.selected_item else 1, 1, 1, 1
+        text_color: (1, 1, 1, .5) if not root.selected_item else (1, 1, 1, 1)
 
     MDLabel:
         text: root.text
-        color: 1, 1, 1, .5 if not root.selected_item else 1, 1, 1, 1
+        color: (1, 1, 1, .5) if not root.selected_item else (1, 1, 1, 1)
 
 
 <ItemBackdropBackLayerOfSecondScreen@BoxLayout>
@@ -89,9 +84,8 @@ Builder.load_string(
     backdrop: None
     backlayer: None
 
-    GridLayout:
-        size_hint_y: None
-        height: self.minimum_height
+    MDGridLayout:
+        adaptive_height: True
         cols: 1
         padding: "5dp"
 
@@ -115,21 +109,19 @@ Builder.load_string(
             text: "Lower the front layer"
             secondary_text: " by 50 %"
             icon: "transfer-down"
-            on_press:
-                root.backdrop.open(-Window.height / 2)
+            on_press: root.backdrop.open(-Window.height / 2)
 
 
 <MyBackdropBackLayer@ScreenManager>
     transition: NoTransition()
 
-    Screen:
+    MDScreen:
         name: "one screen"
 
         ScrollView
 
-            GridLayout:
-                size_hint_y: None
-                height: self.minimum_height
+            MDGridLayout:
+                adaptive_height: True
                 cols: 1
                 padding: "5dp"
 
@@ -158,14 +150,13 @@ Builder.load_string(
                     icon: "music-circle-outline"
                     text: "Music"
 
-    Screen:
+    MDScreen:
         name: "second screen"
 
         ScrollView
 
-            GridLayout:
-                size_hint_y: None
-                height: self.minimum_height
+            MDGridLayout:
+                adaptive_height: True
                 cols: 1
                 padding: "15dp"
                 spacing: "10dp"
@@ -235,11 +226,11 @@ Builder.load_string(
 )
 
 
-class ExampleBackdrop(Screen):
+class ExampleBackdrop(MDScreen):
     pass
 
 
-class ItemBackdropBackLayer(ThemableBehavior, BoxLayout):
+class ItemBackdropBackLayer(ThemableBehavior, MDBoxLayout):
     icon = StringProperty("android")
     text = StringProperty()
     selected_item = BooleanProperty(False)
@@ -255,9 +246,9 @@ class ItemBackdropBackLayer(ThemableBehavior, BoxLayout):
 
 class MainApp(MDApp):
     def __init__(self, **kwargs):
+        super().__init__(**kwargs)
         self.title = "KivyMD Example - Backdrop"
         self.theme_cls.primary_palette = "DeepPurple"
-        super().__init__(**kwargs)
 
     def build(self):
         self.root = ExampleBackdrop()
