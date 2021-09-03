@@ -7,7 +7,7 @@ from kivy.lang import Builder
 from kivymd.app import MDApp
 
 root_kv = """
-BoxLayout:
+MDBoxLayout:
     orientation: "vertical"
 
     MDToolbar:
@@ -89,6 +89,5 @@ Or MDBottomNavigation with custom of panel color:
 
 ```
     MDBottomNavigation:
-        panel_color:
-            [0.2980392156862745, 0.2823529411764706, 0.32941176470588235, 1]
+        panel_color: 0, 0, 1, 1
 ```
