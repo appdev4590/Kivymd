@@ -9,7 +9,7 @@ You should now use this markup structure:
 ```python
 Root:
 
-    NavigationLayout:
+    MDNavigationLayout:
 
         ScreenManager:
 
@@ -25,11 +25,11 @@ Root:
 
 ```python
 from kivy.lang import Builder
-from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import StringProperty, ListProperty
 
 from kivymd.app import MDApp
 from kivymd.theming import ThemableBehavior
+from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.list import OneLineIconListItem, MDList
 
 KV = '''
@@ -64,14 +64,12 @@ KV = '''
     MDLabel:
         text: "KivyMD library"
         font_style: "Button"
-        size_hint_y: None
-        height: self.texture_size[1]
+        adaptive_height: True
 
     MDLabel:
         text: "kivydevelopment@gmail.com"
         font_style: "Caption"
-        size_hint_y: None
-        height: self.texture_size[1]
+        adaptive_height: True
 
     ScrollView:
 
@@ -80,21 +78,21 @@ KV = '''
 
 
 
-Screen:
+MDScreen:
 
-    NavigationLayout:
+    MDNavigationLayout:
 
         ScreenManager:
 
-            Screen:
+            MDScreen:
 
-                BoxLayout:
+                MDBoxLayout:
                     orientation: 'vertical'
 
                     MDToolbar:
                         title: "Navigation Drawer"
                         elevation: 10
-                        left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
+                        left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
 
                     Widget:
 
@@ -107,7 +105,7 @@ Screen:
 '''
 
 
-class ContentNavigationDrawer(BoxLayout):
+class ContentNavigationDrawer(MDBoxLayout):
     pass
 
 
