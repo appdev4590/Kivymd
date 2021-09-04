@@ -5,12 +5,24 @@
 ```python
 from kivy.lang import Builder
 from kivy.factory import Factory
+
 from kivymd.app import MDApp
 
 Builder.load_string(
     """
-<ExampleTextFields@BoxLayout>:
+#:import Window kivy.core.window.Window
+#:set color_shadow [0, 0, 0, .2980392156862745]
+
+
+<TextFieldRound@MDTextFieldRound>
+    size_hint_x: None
+    normal_color: color_shadow
+    active_color: color_shadow
+
+
+<ExampleTextFields@MDBoxLayout>:
     orientation: "vertical"
+    spacing: "10dp"
 
     MDToolbar:
         id: toolbar
@@ -22,15 +34,57 @@ Builder.load_string(
 
     ScrollView:
 
-        BoxLayout:
+        MDBoxLayout:
             orientation: "vertical"
-            size_hint_y: None
-            height: self.minimum_height
+            adaptive_height: True
             padding: dp(48)
-            spacing: 10
+            spacing: dp(15)
+
+            TextFieldRound:
+                hint_text: "Empty field"
+
+            TextFieldRound:
+                icon_left: "email"
+                hint_text: "Field with left icon"
+
+            TextFieldRound:
+                icon_left: "key-variant"
+                icon_right: "eye-off"
+                hint_text: "Field with left and right icons"
+
+            MDTextField:
+                hint_text: "Rectangle mode"
+                mode: "rectangle"
+
+            MDTextField:
+                hint_text: "With right icon"
+                mode: "rectangle"
+                fill_color: 0, 0, 0, .4
+                icon_right: "arrow-down-drop-circle-outline"
+                icon_right_color: app.theme_cls.disabled_hint_text_color
+
+            MDTextField:
+                hint_text: "Fill mode"
+                mode: "fill"
+                fill_color: 0, 0, 0, .4
+
+            MDTextField:
+                hint_text: "With right icon"
+                mode: "fill"
+                fill_color: 0, 0, 0, .4
+                icon_right: "arrow-down-drop-circle-outline"
+
+            MDTextField:
+                input_filter: "int"
+                hint_text: "Numeric field"
 
             MDTextField:
                 hint_text: "No helper text"
+
+            MDTextField:
+                hint_text: "With right icon"
+                icon_right: "arrow-down-drop-circle-outline"
+                icon_right_color: app.theme_cls.disabled_hint_text_color
 
             MDTextField:
                 hint_text: "Helper text on focus"
@@ -38,16 +92,17 @@ Builder.load_string(
                 helper_text_mode: "on_focus"
 
             MDTextField:
+                hint_text: "line_anim = False"
+                line_anim: False                    
+
+            MDTextField:
                 hint_text: "Persistent helper text"
                 helper_text: "Text is always here"
                 helper_text_mode: "persistent"
 
-            MDTextField:
-                id: text_field_error
-                hint_text:
-                    "Helper text on error (Hit Enter with two characters here)"
-                helper_text: "Two is my least favorite number"
-                helper_text_mode: "on_error"
+            Widget:
+                size_hint_y: None
+                height: "5dp"
 
             MDTextField:
                 hint_text: "Max text length = 10"
@@ -72,24 +127,33 @@ Builder.load_string(
                 hint_text: "color_mode = \'custom\'"
                 color_mode: "custom"
                 helper_text_mode: "on_focus"
-                helper_text:
-                    "Color is defined by \'line_color_focus\' property"
-                line_color_focus:
-                    # This is the color used by the textfield
-                    self.theme_cls.opposite_bg_normal
+                helper_text: "Color is defined by \'line_color_focus\' property"
+                line_color_focus: self.theme_cls.opposite_bg_normal
 
             MDTextField:
                 hint_text: "disabled = True"
                 disabled: True
+
+            MDTextFieldRect:
+                size_hint: None, None
+                size: Window.width - dp(40), "30dp"
+                pos_hint: {"center_y": .5, "center_x": .5}
+
+            MDTextFieldRect:
+                hint_text: "line_anim = False"
+                line_anim: False
+                size_hint: None, None
+                size: Window.width - dp(40), "30dp"
+                pos_hint: {"center_y": .5, "center_x": .5}
 """
 )
 
 
 class MainApp(MDApp):
     def __init__(self, **kwargs):
+        super().__init__(**kwargs)
         self.title = "KivyMD Examples - Text Fields"
         self.theme_cls.primary_palette = "Blue"
-        super().__init__(**kwargs)
 
     def build(self):
         self.root = Factory.ExampleTextFields()
