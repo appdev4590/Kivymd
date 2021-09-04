@@ -11,7 +11,7 @@
     from kivymd.uix.dialog import MDDialog
 
     KV = '''
-    FloatLayout:
+    MDFloatLayout:
 
         MDFlatButton:
             text: "ALERT DIALOG"
