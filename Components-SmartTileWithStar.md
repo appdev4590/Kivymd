@@ -5,6 +5,7 @@
 ```python
 import os
 from kivy.lang import Builder
+
 from kivymd.app import MDApp
 from kivymd.utils.cropimage import crop_image
 
@@ -14,7 +15,7 @@ root_kv = """
     font_style: "Subhead"
 
 
-BoxLayout:
+MDBoxLayout:
     orientation: "vertical"
 
     MDToolbar:
@@ -26,7 +27,7 @@ BoxLayout:
     ScreenManager:
         id: manager
 
-        Screen:
+        MDScreen:
             name: "one"
 
             MDRaisedButton:
@@ -34,7 +35,7 @@ BoxLayout:
                 on_release: manager.current = "two"
                 text: "Open Grid"
 
-        Screen:
+        MDScreen:
             name: "two"
             on_enter:
                 app.crop_image_for_tile(tile_1, tile_1.size, \
@@ -55,13 +56,11 @@ BoxLayout:
             ScrollView:
                 do_scroll_x: False
 
-                GridLayout:
+                MDGridLayout:
                     cols: 2
-                    row_default_height:
-                        (self.width - self.cols*self.spacing[0])/self.cols
+                    row_default_height: (self.width - self.cols*self.spacing[0])/self.cols
                     row_force_default: True
-                    size_hint_y: None
-                    height: self.minimum_height
+                    adaptive_height: True
                     padding: dp(4), dp(4)
                     spacing: dp(4)
 
