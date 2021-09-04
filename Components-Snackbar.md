@@ -17,17 +17,17 @@ root_kv = """
 #:import Window kivy.core.window.Window
 
 
-Screen:
+MDScreen:
     name: "snackbar"
 
-    BoxLayout:
+    MDBoxLayout:
         orientation: "vertical"
         spacing: dp(10)
 
         MDToolbar:
             title: "Snackbar"
 
-        BoxLayout:
+        MDBoxLayout:
             orientation: "vertical"
             spacing: dp(10)
             padding: dp(10)
