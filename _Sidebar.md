@@ -19,7 +19,6 @@
 * [Dialog](Components-Dialog)
 * [DropDownMenu](Components-DropDownMenu)
 * [DropDownItem](Components-DropDownItem)
-  * [DropDownItem with ScrollView](Components-DropDownItem-with-ScrollView)
 * [Expansion Panel](Components-Expansion-Panel)
   * [Expansion Panel and MDCard](Components-Expansion-Panel-and-MDCard)
 * [File Manager](Components-File-Manager)
