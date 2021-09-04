@@ -1,52 +1,61 @@
-![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/dropdownitem.gif)
+![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD-data/master/gallery/kivymddoc/menu-position-center.gif)
 
 ## Example of using MDDropDownItem:
 
 ```python
 from kivy.lang import Builder
+from kivy.metrics import dp
+from kivy.properties import StringProperty
 
+from kivymd.uix.list import OneLineIconListItem
 from kivymd.app import MDApp
 from kivymd.uix.menu import MDDropdownMenu
 
-KV = """
-#:import toast kivymd.toast.toast
+KV = '''
+<IconListItem>
+
+    IconLeftWidget:
+        icon: root.icon
 
 
-Screen:
-
-    MDToolbar:
-        pos_hint: {"top": 1}
-        title: "MDDropDownItem"
+MDScreen
 
     MDDropDownItem:
-        id: dropdown_item
-        text: "Item 0"
-        pos_hint: {'center_x': 0.5, 'center_y': 0.6}
-        dropdown_bg: [1, 1, 1, 1]
+        id: drop_item
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        text: 'Item 0'
         on_release: app.menu.open()
+'''
 
-    MDRaisedButton:
-        pos_hint: {'center_x': 0.5, 'center_y': 0.3}
-        text: 'Chek Item'
-        on_release: toast(dropdown_item.current_item)
-"""
+
+class IconListItem(OneLineIconListItem):
+    icon = StringProperty()
 
 
 class Test(MDApp):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.screen = Builder.load_string(KV)
-        menu_items = [{"icon": "git", "text": f"Item {i}"} for i in range(5)]
+        menu_items = [
+            {
+                "viewclass": "IconListItem",
+                "icon": "git",
+                "text": f"Item {i}",
+                "height": dp(56),
+                "on_release": lambda x=f"Item {i}": self.set_item(x),
+            } for i in range(5)
+        ]
         self.menu = MDDropdownMenu(
-            caller=self.screen.ids.dropdown_item,
+            caller=self.screen.ids.drop_item,
             items=menu_items,
             position="center",
-            callback=self.set_item,
             width_mult=4,
         )
+        self.menu.bind()
 
-    def set_item(self, instance):
-        self.screen.ids.dropdown_item.set_item(instance.text)
+    def set_item(self, text_item):
+        self.screen.ids.drop_item.set_item(text_item)
+        self.menu.dismiss()
 
     def build(self):
         return self.screen
