@@ -21,9 +21,9 @@ Builder.load_string(
         icon: root.icon
 
 
-<Example@FloatLayout>
+<Example@MDFloatLayout>
 
-    BoxLayout:
+    MDBoxLayout:
         orientation: "vertical"
 
         MDToolbar:
@@ -38,10 +38,9 @@ Builder.load_string(
             refresh_callback: app.refresh_callback
             root_layout: root
 
-            GridLayout:
+            MDGridLayout:
                 id: box
-                size_hint_y: None
-                height: self.minimum_height
+                adaptive_height: True
                 cols: 1
 """
 )
