@@ -1,4 +1,4 @@
-![useranimationcard.gif](https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/data-picker.gif)
+![useranimationcard.gif](https://raw.githubusercontent.com/HeaTTheatR/KivyMD-data/master/gallery/kivymddoc/MDDatePicker.gif)
 
 ## Example of using MDDatePicker:
 
