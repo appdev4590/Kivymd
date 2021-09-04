@@ -4,10 +4,10 @@
 
 ```python
 from kivy.lang import Builder
-from kivy.uix.boxlayout import BoxLayout
 from kivy.animation import Animation
 
 from kivymd.app import MDApp
+from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.expansionpanel import MDExpansionPanelOneLine, MDExpansionPanel
 from kivymd import images_path
 
@@ -19,8 +19,7 @@ root_kv = """
     orientation: "vertical"
     padding: dp(10)
     spacing: dp(10)
-    size_hint_y: None
-    height: self.minimum_height
+    adaptive_height: True
 
     TwoLineIconListItem:
         text: "(050)-123-45-67"
@@ -41,7 +40,7 @@ root_kv = """
             icon: "email"
 
 
-Screen:
+MDScreen:
 
     MDToolbar:
         title: "Expansion Panel with Card"
@@ -54,7 +53,7 @@ Screen:
         height: self.minimum_height
         pos_hint: {"center_x": .5, "center_y": .5}
 
-        BoxLayout:
+        MDBoxLayout:
             id: box
             size_hint_y: None
             height: dp(150)
@@ -64,7 +63,7 @@ Screen:
 """
 
 
-class Content(BoxLayout):
+class Content(MDBoxLayout):
     pass
 
 
@@ -84,7 +83,7 @@ class MainApp(MDApp):
                 on_close=self.panel_close,
                 icon=f"{images_path}kivymd_logo.png",
                 content=content,
-                panel_cls=MDExpansionPanelOneLine(text="KivyMD v.0.103.0"),
+                panel_cls=MDExpansionPanelOneLine(text="KivyMD v.0.104.2"),
             )
         )
 
