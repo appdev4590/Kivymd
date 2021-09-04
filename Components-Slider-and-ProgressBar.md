@@ -4,13 +4,14 @@
 
 ```python
 from kivy.lang import Builder
+
 from kivymd.app import MDApp
 
 root_kv = """
-Screen:
+MDScreen:
     name: "progress bar"
 
-    BoxLayout:
+    MDBoxLayout:
         orientation:"vertical"
         padding: "8dp"
 
