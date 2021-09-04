@@ -4,8 +4,8 @@
 
 ```python
 from kivy.lang import Builder
-from kivy.uix.boxlayout import BoxLayout
 
+from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.app import MDApp
 from kivymd import images_path
 from kivymd.uix.expansionpanel import MDExpansionPanel, MDExpansionPanelThreeLine
@@ -23,9 +23,9 @@ KV = '''
             icon: 'phone'
 
 
-Screen:
+MDScreen:
 
-    BoxLayout:
+    MDBoxLayout:
         orientation: "vertical"
 
         MDToolbar:
@@ -34,15 +34,14 @@ Screen:
 
         ScrollView:
 
-            GridLayout:
+            MDGridLayout:
                 cols: 1
-                size_hint_y: None
-                height: self.minimum_height
+                adaptive_height: True
                 id: box
 '''
 
 
-class Content(BoxLayout):
+class Content(MDBoxLayout):
     pass
 
 
