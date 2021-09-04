@@ -30,7 +30,6 @@
 * [Slider and ProgressBar](Components-Slider-and-ProgressBar)
 * [Floating Action Button Speed Dial](Components-Floating-Action-Button-Speed-Dial)
 * [Tabs](Components-Tabs)
-  * [Tabs Auto Switch](Components-Tabs-Auto-Switch)
 * [Tooltips](Components-Tooltips)
 * [Text Field](Components-Text-Field)
   * [Text Field Rectangle](Components-Text-Field-Rectangle)
