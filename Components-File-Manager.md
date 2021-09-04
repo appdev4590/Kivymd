@@ -12,7 +12,7 @@ from kivymd.toast import toast
 
 
 KV = '''
-BoxLayout:
+MDBoxLayout:
     orientation: 'vertical'
 
     MDToolbar:
@@ -21,7 +21,7 @@ BoxLayout:
         elevation: 10
 
 
-    FloatLayout:
+    MDFloatLayout:
 
         MDRoundFlatIconButton:
             text: "Open manager"
